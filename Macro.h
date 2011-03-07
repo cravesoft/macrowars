@@ -16,7 +16,7 @@ class Core;
 class Asteroid;
 class Ship;
 
-class Macro: public oboy::Game, public oboy::KeyboardListener, public oboy::MouseListener
+class Macro: public OBoy::Game, public OBoy::KeyboardListener, public OBoy::MouseListener
 {
 public:
 
@@ -32,19 +32,19 @@ public:
 	virtual void load();
 	virtual void loadComplete();
 	virtual void update(float dt);
-	virtual void draw(oboy::Graphics *g);
+	virtual void draw(OBoy::Graphics *g);
 
 	// implementation of KeyboardListener:
-	virtual void keyUp(wchar_t unicode, oboy::Keyboard::Key key, oboy::Keyboard::Modifiers mods);
-	virtual void keyDown(wchar_t unicode, oboy::Keyboard::Key key, oboy::Keyboard::Modifiers mods);
+	virtual void keyUp(wchar_t unicode, OBoy::Keyboard::Key key, OBoy::Keyboard::Modifiers mods);
+	virtual void keyDown(wchar_t unicode, OBoy::Keyboard::Key key, OBoy::Keyboard::Modifiers mods);
 
   // implementation of MouseListener:
-  virtual void mouseMove(oboy::Mouse *mouse);
-  virtual void mouseButtonDown(oboy::Mouse *mouse, oboy::Mouse::Button button, int clickCount);
-	virtual void mouseButtonUp(oboy::Mouse *mouse, oboy::Mouse::Button button);
-	virtual void mouseWheel(oboy::Mouse *mouse, int wheelDelta);
-	virtual void mouseEnter(oboy::Mouse *mouse);
-	virtual void mouseLeave(oboy::Mouse *mouse);
+  virtual void mouseMove(OBoy::Mouse *mouse);
+  virtual void mouseButtonDown(OBoy::Mouse *mouse, OBoy::Mouse::Button button, int clickCount);
+	virtual void mouseButtonUp(OBoy::Mouse *mouse, OBoy::Mouse::Button button);
+	virtual void mouseWheel(OBoy::Mouse *mouse, int wheelDelta);
+	virtual void mouseEnter(OBoy::Mouse *mouse);
+	virtual void mouseLeave(OBoy::Mouse *mouse);
 
 	void newGame();
   void endGame();
@@ -56,18 +56,18 @@ private:
   void loadRandomMap(const int numPlayers, const int numPlanets, const int numAsteroids);
   void createBackground();
   void deleteBackground();
-  void drawBackground(oboy::Graphics *g, const oboylib::Vector2 camera);
+  void drawBackground(OBoy::Graphics *g, const OBoyLib::Vector2 camera);
   void updateGame(float dt);
   void updateMenu(float dt);
-	void drawGame(oboy::Graphics *g);
-  void drawMenu(oboy::Graphics *g);
+	void drawGame(OBoy::Graphics *g);
+  void drawMenu(OBoy::Graphics *g);
 
 private:
 
   typedef void (Macro::*updateFunc)(float);
   ::std::vector<updateFunc> mUpdateFuncs;
 
-  typedef void (Macro::*drawFunc)(oboy::Graphics *g);
+  typedef void (Macro::*drawFunc)(OBoy::Graphics *g);
   ::std::vector<drawFunc> mDrawFuncs;
 
 	static Macro *gInstance;
@@ -80,11 +80,11 @@ private:
 
   GuiSystem *mGuiSystem;
 	bool mLoadComplete;
-	oboy::Sound *mBoomSound;
-  oboy::Sound *mExplosionSound;
-	oboy::Sound *mFireSound;
-	oboy::Sound *mThrustSound;
-	oboy::Font *mFont;
+	OBoy::Sound *mBoomSound;
+  OBoy::Sound *mExplosionSound;
+	OBoy::Sound *mFireSound;
+	OBoy::Sound *mThrustSound;
+	OBoy::Font *mFont;
 	bool mGameOver;
 	int mDrawCount;
   bool mDrawMinHp;
@@ -94,15 +94,15 @@ private:
   bool mArrowSelected;
   bool mRingSelected;
   bool mWaypointSelected;
-  oboylib::Vector2 mCamera;
-  oboylib::Vector2 mMove;
-  oboylib::Vector2 mWorldSize;
-  oboylib::Vector2 mMousePos;
-  std::map<oboy::Keyboard::Key, bool> mKeyPressed;
-  std::map<oboy::Mouse::Button, bool> mButtonPressed;
+  OBoyLib::Vector2 mCamera;
+  OBoyLib::Vector2 mMove;
+  OBoyLib::Vector2 mWorldSize;
+  OBoyLib::Vector2 mMousePos;
+  std::map<OBoy::Keyboard::Key, bool> mKeyPressed;
+  std::map<OBoy::Mouse::Button, bool> mButtonPressed;
   float mGameSpeed;
   float mSavedGameSpeed;
-  oboy::Lines *mGrid;
+  OBoy::Lines *mGrid;
 
   Player *mMainPlayer;
 };

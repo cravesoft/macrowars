@@ -10,7 +10,7 @@
 #define callMemberFunction(object,ptrToMember) ((object)->*(ptrToMember))
 
 Ship::Ship(OriginAndDestination *origin, OriginAndDestination *destination,
-           const Player* player, oboylib::Vector2 position) : Traveller(origin, destination), Satellite()
+           const Player* player, OBoyLib::Vector2 position) : Traveller(origin, destination), Satellite()
 {
   mSpeed = .1f;
   mAngle = 0;
@@ -26,16 +26,16 @@ Ship::Ship(OriginAndDestination *origin, OriginAndDestination *destination,
   for (int i = 0; i < mNumParticles; ++i)
   {
 		mParticles[i].active = true;
-    mParticles[i].life = oboylib::Color::Black;
+    mParticles[i].life = OBoyLib::Color::Black;
 		//mParticles[i].fade = (float)(rand()%100)/1000.0f+0.003f;
     mParticles[i].fade = 0x01;
-		mParticles[i].color = oboylib::Color::Yellow;
+		mParticles[i].color = OBoyLib::Color::Yellow;
     mParticles[i].pos.x() = 0;
 		mParticles[i].pos.y() = 0;
 		mParticles[i].dir.x() = (float)((rand()%50)-26.0f)*10.0f;
 		mParticles[i].dir.y() = (float)((rand()%50)-26.0f)*10.0f;
 #if 0
-    mParticles[i].shape = oboy::Environment::instance()->createLineStrip(5);
+    mParticles[i].shape = OBoy::Environment::instance()->createLineStrip(5);
     mParticles[i].shape->setVertPos(0, -2, -2);
     mParticles[i].shape->setVertPos(1, 4, -2);
     mParticles[i].shape->setVertPos(2, 4, 4);
@@ -45,7 +45,7 @@ Ship::Ship(OriginAndDestination *origin, OriginAndDestination *destination,
     mParticles[i].shape->build();
 #endif
 	}
-  mTriangle = oboy::Environment::instance()->createLineStrip(4);
+  mTriangle = OBoy::Environment::instance()->createLineStrip(4);
   mTriangle->setVertPos(0, 0, 5);
   mTriangle->setVertPos(1, 12, 0);
   mTriangle->setVertPos(2, 0, -5);
@@ -60,18 +60,18 @@ Ship::~Ship(void)
   delete[] mParticles;
 }
 
-void Ship::draw(oboy::Graphics *g, const oboylib::Vector2 camera)
+void Ship::draw(OBoy::Graphics *g, const OBoyLib::Vector2 camera)
 {
-	int w = oboy::Environment::screenWidth();
-	int h = oboy::Environment::screenHeight();
-	oboylib::Vector2 pos = mPos - camera;
+	int w = OBoy::Environment::screenWidth();
+	int h = OBoy::Environment::screenHeight();
+	OBoyLib::Vector2 pos = mPos - camera;
 
-	g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+	g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
 	_draw(g,pos);
-	g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+	g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
 }
 
-void Ship::_draw(oboy::Graphics *g, oboylib::Vector2 &pos)
+void Ship::_draw(OBoy::Graphics *g, OBoyLib::Vector2 &pos)
 {
   if (mShipState > 0)
   {

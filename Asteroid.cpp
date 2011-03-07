@@ -7,27 +7,27 @@
 
 Asteroid::Asteroid(void)
 {
-  mColor = oboylib::Color::Gray;
+  mColor = OBoyLib::Color::Gray;
   mRadius = 16;
-  mImage = oboy::Environment::getImage("IMAGE_ASTEROID");
+  mImage = OBoy::Environment::getImage("IMAGE_ASTEROID");
 }
 
 Asteroid::~Asteroid(void)
 {
 }
 
-void Asteroid::draw(oboy::Graphics *g, const oboylib::Vector2 camera)
+void Asteroid::draw(OBoy::Graphics *g, const OBoyLib::Vector2 camera)
 {
-  int w = oboy::Environment::screenWidth();
-	int h = oboy::Environment::screenHeight();
-	oboylib::Vector2 pos = mPos - camera;
+  int w = OBoy::Environment::screenWidth();
+	int h = OBoy::Environment::screenHeight();
+	OBoyLib::Vector2 pos = mPos - camera;
 
-	g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+	g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
 	_draw(g,pos);
-	g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+	g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
 }
 
-void Asteroid::_draw(oboy::Graphics *g, oboylib::Vector2 &pos)
+void Asteroid::_draw(OBoy::Graphics *g, OBoyLib::Vector2 &pos)
 {
 	if (mImage==NULL)
 	{

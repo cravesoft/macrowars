@@ -9,5 +9,5 @@ Core::Core(void) : Planet()
 {
   this->setRadius(CORE_DEFAULT_RADIUS);
   mSpeed = CORE_DEFAULT_SPEED;
-  mImage = oboy::Environment::getImage("IMAGE_CORE");
+  mImage = OBoy::Environment::getImage("IMAGE_CORE");
 }

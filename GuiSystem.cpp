@@ -10,7 +10,7 @@
 GuiSystem::GuiSystem(Macro *m)
 {
   // load the gui resource groups:
-  oboy::Gui *gui = oboy::Environment::instance()->getGui();
+  OBoy::Gui *gui = OBoy::Environment::instance()->getGui();
 	gui->setResourceGroupDirectory("schemes", "res/schemes/");
 	gui->setResourceGroupDirectory("imagesets", "res/imagesets/");
 	gui->setResourceGroupDirectory("fonts", "res/fonts/");
@@ -51,13 +51,13 @@ GuiSystem::~GuiSystem(void)
 // it displays the GUI
 void GuiSystem::draw()
 {
-  oboy::Gui *gui = oboy::Environment::instance()->getGui();
+  OBoy::Gui *gui = OBoy::Environment::instance()->getGui();
 	gui->draw();
 }
 
 void GuiSystem::close()
 {
-  oboy::Environment::instance()->stopMainLoop();
+  OBoy::Environment::instance()->stopMainLoop();
 }
 
 void GuiSystem::onClic()
@@ -172,7 +172,7 @@ bool GuiSystem::handleReturnToGame(const CEGUI::EventArgs&)
 
 bool GuiSystem::handleOnMenuKey(const CEGUI::EventArgs& e)
 {
-  if (static_cast<const CEGUI::KeyEventArgs&>(e).scancode == oboy::Keyboard::KEY_ESCAPE)
+  if (static_cast<const CEGUI::KeyEventArgs&>(e).scancode == OBoy::Keyboard::KEY_ESCAPE)
   {
     handleReturnToGame(e);
     return true;
@@ -182,7 +182,7 @@ bool GuiSystem::handleOnMenuKey(const CEGUI::EventArgs& e)
 
 bool GuiSystem::handleOnGameKey(const CEGUI::EventArgs& e)
 {
-  if (static_cast<const CEGUI::KeyEventArgs&>(e).scancode == oboy::Keyboard::KEY_ESCAPE)
+  if (static_cast<const CEGUI::KeyEventArgs&>(e).scancode == OBoy::Keyboard::KEY_ESCAPE)
   {
     handleDisplayGameMenu(e);
     return true;

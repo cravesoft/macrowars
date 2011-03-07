@@ -20,15 +20,15 @@ class Waypoint : public OriginAndDestination, public Orbitable
 public:
 
   Waypoint(void);
-  explicit Waypoint(oboylib::Vector2);
+  explicit Waypoint(OBoyLib::Vector2);
   virtual ~Waypoint(void);
 
-  void draw(oboy::Graphics *g, const oboylib::Vector2 camera);
-  void drawProbas(oboy::Graphics *g, const oboylib::Vector2 camera);
+  void draw(OBoy::Graphics *g, const OBoyLib::Vector2 camera);
+  void drawProbas(OBoy::Graphics *g, const OBoyLib::Vector2 camera);
 
-  virtual bool isTouched(const oboylib::Vector2);
-  bool isRingTouched(const oboylib::Vector2);
-  bool isArrowTouched(const oboylib::Vector2 pos, Waypoint* &parent);
+  virtual bool isTouched(const OBoyLib::Vector2);
+  bool isRingTouched(const OBoyLib::Vector2);
+  bool isArrowTouched(const OBoyLib::Vector2 pos, Waypoint* &parent);
 
   void addProbaArrow(Waypoint*);
   void removeProbaArrow(Waypoint*);
@@ -79,11 +79,11 @@ public:
 
 private:
 
-  void drawArrow(oboy::Graphics *g, const float length, const oboylib::Color color);
+  void drawArrow(OBoy::Graphics *g, const float length, const OBoyLib::Color color);
 #if 0
   void createArrow(Waypoint* sibling);
   void deleteArrow(Waypoint* sibling);
-  void updateArrow(Waypoint* sibling, const float length, const oboylib::Color color);
+  void updateArrow(Waypoint* sibling, const float length, const OBoyLib::Color color);
 #endif
 private:
   
@@ -95,9 +95,9 @@ private:
   std::vector<Waypoint*> mParents;
   std::vector<Waypoint*> mSiblings;
   Planet* mPlanet;
-  oboy::Font *mFont;
-  std::map<Waypoint*, oboy::TriStrip*> mArrowTailTriStrips;
-  std::map<Waypoint*, oboy::TriStrip*> mArrowHeadTriStrips;
-  std::map<Waypoint*, oboy::LineStrip*> mArrowLineStrips;
-  oboy::TriStrip* mRingStrip;
+  OBoy::Font *mFont;
+  std::map<Waypoint*, OBoy::TriStrip*> mArrowTailTriStrips;
+  std::map<Waypoint*, OBoy::TriStrip*> mArrowHeadTriStrips;
+  std::map<Waypoint*, OBoy::LineStrip*> mArrowLineStrips;
+  OBoy::TriStrip* mRingStrip;
 };

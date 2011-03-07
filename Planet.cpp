@@ -28,15 +28,15 @@ Planet::~Planet(void)
 
 void Planet::init()
 {
-  mColor = oboylib::Color::Gray;
+  mColor = OBoyLib::Color::Gray;
   mRadius = PLANET_DEFAULT_RADIUS;
   mSpeed = PLANET_DEFAULT_SPEED;
-  mPos = oboylib::Vector2(); 
+  mPos = OBoyLib::Vector2(); 
   mCaptured = false;
   mSelected = false;
   mTtl = 0;
   mHp = 0;
-  mImage = oboy::Environment::getImage("IMAGE_PLANET");
+  mImage = OBoy::Environment::getImage("IMAGE_PLANET");
   for (int i = 0; i < 3; i++)
   {
     mRot[i] = static_cast<float>(rand()%360);
@@ -45,27 +45,27 @@ void Planet::init()
     else
       mRotVel[i] = (-1)*static_cast<float>(rand()%100)/1000;
   }
-  oboy::ResourceManager *rm = oboy::Environment::instance()->getResourceManager();
+  OBoy::ResourceManager *rm = OBoy::Environment::instance()->getResourceManager();
   mFont = rm->getFont("FONT_MAIN");
 	mExplosionSound = rm->getSound("SOUND_EXPLOSION");
 #if 0
-  mSphere = oboy::Environment::instance()->createSphere((float)mRadius, 20, 20);
+  mSphere = OBoy::Environment::instance()->createSphere((float)mRadius, 20, 20);
   mSphere->build();
 #endif
   // graphics:
-  mMinHpStrip = oboy::Environment::instance()->createTriStrip(722);
-  mMinHpStrip->setColor(oboylib::Color::Red & 0x40ffffff);
-  mCurrentHpStrip = oboy::Environment::instance()->createTriStrip(722);
-  mCurrentHpStrip->setColor(oboylib::Color::Red & 0x40ffffff);
+  mMinHpStrip = OBoy::Environment::instance()->createTriStrip(722);
+  mMinHpStrip->setColor(OBoyLib::Color::Red & 0x40ffffff);
+  mCurrentHpStrip = OBoy::Environment::instance()->createTriStrip(722);
+  mCurrentHpStrip->setColor(OBoyLib::Color::Red & 0x40ffffff);
   updateHp(10);
 }
 #if 0
 void Planet::setImage(const ::std::string &id)
 {
-  oboy::ResourceManager *rm = oboy::Environment::instance()->getResourceManager();
+  OBoy::ResourceManager *rm = OBoy::Environment::instance()->getResourceManager();
   mImage = rm->getImage(id);
   mSphere->setTexture(mImage);
-  //rm->saveResource((oboy::Resource*)mImage, "image");
+  //rm->saveResource((OBoy::Resource*)mImage, "image");
 }
 #endif
 
@@ -74,38 +74,38 @@ void Planet::setRadius(const int radius)
   Body::setRadius(radius);
 #if 0
   delete mSphere;
-  mSphere = oboy::Environment::instance()->createSphere((float)mRadius, 20, 20);
+  mSphere = OBoy::Environment::instance()->createSphere((float)mRadius, 20, 20);
   mSphere->build();
 #endif
 }
 
-void Planet::draw(oboy::Graphics *g, oboylib::Vector2 camera)
+void Planet::draw(OBoy::Graphics *g, OBoyLib::Vector2 camera)
 {
 }
 
-void Planet::draw(oboy::Graphics *g, const oboylib::Vector2 &camera, const bool drawMinHp, const Player* player)
+void Planet::draw(OBoy::Graphics *g, const OBoyLib::Vector2 &camera, const bool drawMinHp, const Player* player)
 {
-  int w = oboy::Environment::screenWidth();
-	int h = oboy::Environment::screenHeight();
-	oboylib::Vector2 pos = mPos - camera;
+  int w = OBoy::Environment::screenWidth();
+	int h = OBoy::Environment::screenHeight();
+	OBoyLib::Vector2 pos = mPos - camera;
 
-	g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
-  //g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+	g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
+  //g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
   _draw(g,pos);
-	g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+	g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
 
   if (drawMinHp)
   {
-    //g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
-    g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+    //g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
+    g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
     _drawMinHp(g, pos, player);
-    g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+    g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
     if (mWaypoints[player] == NULL || !mWaypoints[player]->isSelectedAsParent())
       _drawText(g, pos, player);
   }
 }
 
-void Planet::_draw(oboy::Graphics *g, const oboylib::Vector2 &pos)
+void Planet::_draw(OBoy::Graphics *g, const OBoyLib::Vector2 &pos)
 {
 	if (mImage==NULL)
 	{
@@ -131,14 +131,14 @@ void Planet::_draw(oboy::Graphics *g, const oboylib::Vector2 &pos)
 	g->popTransform();
 }
 
-void Planet::_drawMinHp(oboy::Graphics *g, const oboylib::Vector2 &pos, const Player* player)
+void Planet::_drawMinHp(OBoy::Graphics *g, const OBoyLib::Vector2 &pos, const Player* player)
 {
 	g->pushTransform();
     g->translate(pos.x(),pos.y());
     if (mMinHp[player] > 0)
     {
       const float outerRadius = 1.2f*mRadius;
-      g->setColor(oboylib::Color(oboylib::Color::Red));
+      g->setColor(OBoyLib::Color(OBoyLib::Color::Red));
       g->drawCircle(0, 0, outerRadius+mMinHp[player], 1);
       // draw the minimum Hp:
       g->drawTriStrip(mMinHpStrip);
@@ -151,22 +151,22 @@ void Planet::_drawMinHp(oboy::Graphics *g, const oboylib::Vector2 &pos, const Pl
 	g->popTransform();
 }
 
-void Planet::_drawText(oboy::Graphics *g, const oboylib::Vector2 &pos, const Player* player)
+void Planet::_drawText(OBoy::Graphics *g, const OBoyLib::Vector2 &pos, const Player* player)
 {
   if (mPlanetOwner == player || mPlanetOwner == NULL || mSelected)
   {
     // draw stats:
     float str2scale = 0.8f;
-		oboy::UString stats;
+		OBoy::UString stats;
     if (!mSelected)
-      stats = oboy::UString::format("%d", mHp);
+      stats = OBoy::UString::format("%d", mHp);
     else if (mPlanetOwner == player || mPlanetOwner == NULL)
-      stats = oboy::UString::format("%d/%d", mHp, mMinHp[player]);
+      stats = OBoy::UString::format("%d/%d", mHp, mMinHp[player]);
     else
-      stats = oboy::UString::format("?/%d", mMinHp[player]);
+      stats = OBoy::UString::format("?/%d", mMinHp[player]);
     float x = pos.x() - (mFont->getStringWidth(stats)*str2scale) / 2.0f;
 		g->setColorizationEnabled(true);
-    g->setColor(oboylib::Color::White);
+    g->setColor(OBoyLib::Color::White);
 		g->pushTransform();
 		  g->translate(x, pos.y());
       //g->setZ(mRadius+1);
@@ -176,7 +176,7 @@ void Planet::_drawText(oboy::Graphics *g, const oboylib::Vector2 &pos, const Pla
   }
 }
 
-float Planet::getDistance(const oboylib::Vector2 pos)
+float Planet::getDistance(const OBoyLib::Vector2 pos)
 {
   return abs((mPos - pos).magnitude() - mRadius);
 }
@@ -195,7 +195,7 @@ void Planet::capture(const Player* player)
 
 void Planet::release()
 {
-  mColor = oboylib::Color::Gray;
+  mColor = OBoyLib::Color::Gray;
   mCaptured = false;
   mTtl = 0;
 #if 0
@@ -302,7 +302,7 @@ void Planet::handleShipCollision(Ship* ship)
   {
     ship->setShipState(Ship::SHIP_DEAD);
     // play a sound:
-    oboy::Environment::instance()->getSoundPlayer()->playSound(mExplosionSound);
+    OBoy::Environment::instance()->getSoundPlayer()->playSound(mExplosionSound);
     if (mHp > 0)
     {
       updateHp(-1);

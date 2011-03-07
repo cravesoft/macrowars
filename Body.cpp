@@ -2,7 +2,7 @@
 
 #include "Body.h"
 
-bool Body::isTouched(const oboylib::Vector2 pos) const
+bool Body::isTouched(const OBoyLib::Vector2 pos) const
 {
   if ((mPos - pos).magnitude() < mRadius)
     return true;

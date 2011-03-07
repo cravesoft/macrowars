@@ -15,15 +15,15 @@ public:
   Asteroid(void);
   virtual ~Asteroid(void);
 
-  virtual void draw(oboy::Graphics *g, const oboylib::Vector2 camera);
+  virtual void draw(OBoy::Graphics *g, const OBoyLib::Vector2 camera);
   virtual void handleShipCollision(Ship* ship);
   void update();
 
 private:
 
-	void _draw(oboy::Graphics *g, oboylib::Vector2 &pos);
+	void _draw(OBoy::Graphics *g, OBoyLib::Vector2 &pos);
 
 private:
 
-  oboy::Image *mImage;
+  OBoy::Image *mImage;
 };

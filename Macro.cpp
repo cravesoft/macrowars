@@ -16,9 +16,8 @@
 #include "OBoy/SoundPlayer.h"
 #include "OBoy/CoherentNoise.h"
 
-#include "oboylib/Vector3.h"
+#include "OBoyLib/Vector3.h"
 #include <GL/glew.h>
-#include <GL/glut.h>
 
 #define SHIP_ROT_SPEED 200.0f
 #define SHIP_ACCELERATION 30.0f
@@ -45,10 +44,10 @@ Macro::Macro()
 	mLoadComplete = false;
 	mGameOver = true;
 	mDrawCount = 0;
-  mKeyPressed[oboy::Keyboard::KEY_UP] = false;
-  mKeyPressed[oboy::Keyboard::KEY_DOWN] = false;
-  mKeyPressed[oboy::Keyboard::KEY_LEFT] = false;
-  mKeyPressed[oboy::Keyboard::KEY_RIGHT] = false;
+  mKeyPressed[OBoy::Keyboard::KEY_UP] = false;
+  mKeyPressed[OBoy::Keyboard::KEY_DOWN] = false;
+  mKeyPressed[OBoy::Keyboard::KEY_LEFT] = false;
+  mKeyPressed[OBoy::Keyboard::KEY_RIGHT] = false;
   mUpdateFuncs.push_back(&Macro::updateGame);
   mUpdateFuncs.push_back(&Macro::updateMenu);
   mDrawFuncs.push_back(&Macro::drawGame);
@@ -59,8 +58,8 @@ Macro::~Macro()
 {
   delete mGuiSystem; 
 	// stop listening to the keyboard and mouse:
-	oboy::Environment::instance()->getKeyboard(0)->removeListener(this);
-  oboy::Environment::instance()->getMouse(0)->removeListener(this);
+	OBoy::Environment::instance()->getKeyboard(0)->removeListener(this);
+  OBoy::Environment::instance()->getMouse(0)->removeListener(this);
 }
 
 Macro *Macro::instance()
@@ -90,7 +89,7 @@ void Macro::init()
 void Macro::load()
 {
 	// load the common resource group:
-	oboy::ResourceManager *rm = oboy::Environment::instance()->getResourceManager();
+	OBoy::ResourceManager *rm = OBoy::Environment::instance()->getResourceManager();
 	rm->parseResourceFile("res/resources.xml",NULL);
 	rm->loadResourceGroup("common");
   rm->createResourceGroup("textures");
@@ -99,17 +98,17 @@ void Macro::load()
 void Macro::loadComplete()
 {
 	// start listening to the keyboard:
-	oboy::Environment::instance()->getKeyboard(0)->addListener(this);
+	OBoy::Environment::instance()->getKeyboard(0)->addListener(this);
 
 	// start listening to the mouse:
-	oboy::Environment::instance()->getMouse(0)->addListener(this);
+	OBoy::Environment::instance()->getMouse(0)->addListener(this);
 
 	// set the load complete flag (this will trigger 
 	// the start of the game in the update method):
 	mLoadComplete = true;
 
 	// fetch whatever resources we need:
-	oboy::ResourceManager *rm = oboy::Environment::instance()->getResourceManager();
+	OBoy::ResourceManager *rm = OBoy::Environment::instance()->getResourceManager();
 	mFont = rm->getFont("FONT_MAIN");
 	mBoomSound = rm->getSound("SOUND_BOOM");
 	mFireSound = rm->getSound("SOUND_FIRE");
@@ -121,48 +120,48 @@ void Macro::updateGame(float dt)
 {
   // Update camera:
   int command = 0;
-  if (mKeyPressed[oboy::Keyboard::KEY_UP])
+  if (mKeyPressed[OBoy::Keyboard::KEY_UP])
 		command |= 0x8;
-  if (mKeyPressed[oboy::Keyboard::KEY_RIGHT])
+  if (mKeyPressed[OBoy::Keyboard::KEY_RIGHT])
 		command |= 0x4;
-  if (mKeyPressed[oboy::Keyboard::KEY_DOWN])
+  if (mKeyPressed[OBoy::Keyboard::KEY_DOWN])
     command |= 0x2;
-  if (mKeyPressed[oboy::Keyboard::KEY_LEFT])
+  if (mKeyPressed[OBoy::Keyboard::KEY_LEFT])
     command |= 0x1;
   switch (command)
   {
     case 0x8:  // Up
-      mMove = oboylib::Vector2(0, -1);
+      mMove = OBoyLib::Vector2(0, -1);
       break;
     case 0x4:  // Right
-      mMove = oboylib::Vector2(1, 0);
+      mMove = OBoyLib::Vector2(1, 0);
       break;
     case 0x2:  // Down
-      mMove = oboylib::Vector2(0, 1);
+      mMove = OBoyLib::Vector2(0, 1);
       break;
     case 0x1:  // Left
-      mMove = oboylib::Vector2(-1, 0);
+      mMove = OBoyLib::Vector2(-1, 0);
       break;
     case 0xc:  // Up-Right
-      mMove = oboylib::Vector2(1.0f/OSQRT2, -1.0f/OSQRT2);
+      mMove = OBoyLib::Vector2(1.0f/OSQRT2, -1.0f/OSQRT2);
       break;
     case 0x6:  // Down-Right
-      mMove = oboylib::Vector2(1.0f/OSQRT2, 1.0f/OSQRT2);
+      mMove = OBoyLib::Vector2(1.0f/OSQRT2, 1.0f/OSQRT2);
       break;
     case 0x3:  // Down-Left
-      mMove = oboylib::Vector2(-1.0f/OSQRT2, 1.0f/OSQRT2);
+      mMove = OBoyLib::Vector2(-1.0f/OSQRT2, 1.0f/OSQRT2);
       break;
     case 0x9:  // Up-Left
-      mMove = oboylib::Vector2(-1.0f/OSQRT2, -1.0f/OSQRT2);
+      mMove = OBoyLib::Vector2(-1.0f/OSQRT2, -1.0f/OSQRT2);
       break;
     case 0x0:
-      mMove = oboylib::Vector2();
+      mMove = OBoyLib::Vector2();
       break;
     default:
       ;
   }
 
-  oboy::Graphics *g = oboy::Environment::instance()->getGraphics();
+  OBoy::Graphics *g = OBoy::Environment::instance()->getGraphics();
 	float w = (float)g->getWidth() - 10;
 	float h = (float)g->getHeight() - 10;
 #if 0
@@ -227,7 +226,7 @@ void Macro::updateGame(float dt)
         {
           mShips[i]->handleShipCollision(mShips[j]);
           // play a sound:
-				  oboy::Environment::instance()->getSoundPlayer()->playSound(mExplosionSound);
+				  OBoy::Environment::instance()->getSoundPlayer()->playSound(mExplosionSound);
           break;
         }
       }
@@ -238,7 +237,7 @@ void Macro::updateGame(float dt)
         {
           mAsteroids[j]->handleShipCollision(mShips[i]);
           // play a sound:
-				  oboy::Environment::instance()->getSoundPlayer()->playSound(mExplosionSound);
+				  OBoy::Environment::instance()->getSoundPlayer()->playSound(mExplosionSound);
           break;
         }
       }
@@ -275,9 +274,9 @@ void Macro::createBackground()
 	numGridRows--;
   int vertIndex=0;
 
-  mGrid = oboy::Environment::instance()->createLines((numGridCols+numGridRows)*2+8);
+  mGrid = OBoy::Environment::instance()->createLines((numGridCols+numGridRows)*2+8);
   //mGrid->setColor(0x3300ffff);
-  mGrid->setColor(oboylib::Color::White);
+  mGrid->setColor(OBoyLib::Color::White);
 
   // draw grid:
   for (int i = 0; i < numGridCols; i++)
@@ -312,10 +311,10 @@ void Macro::deleteBackground()
   delete(mGrid);
 }
 
-void Macro::drawBackground(oboy::Graphics *g, oboylib::Vector2 camera)
+void Macro::drawBackground(OBoy::Graphics *g, OBoyLib::Vector2 camera)
 {
-  g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
-  g->setColor(oboylib::Color::LightPink);
+  g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
+  g->setColor(OBoyLib::Color::LightPink);
   g->drawRect(0, 0, static_cast<int>(mWorldSize.x()), static_cast<int>(mWorldSize.y()));
 #if 0
   g->setLineWidth(3.0f);
@@ -325,24 +324,24 @@ void Macro::drawBackground(oboy::Graphics *g, oboylib::Vector2 camera)
 	g->popTransform();
   g->setLineWidth(1.0f);
 #endif
-  g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+  g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
 }
 
-void Macro::drawMenu(oboy::Graphics *g)
+void Macro::drawMenu(OBoy::Graphics *g)
 {
   if (mLoadComplete)
 	{
-		/*oboy::UString str1("MACROWARS");
-		oboy::UString str2("press ENTER to start");
+		/*OBoy::UString str1("MACROWARS");
+		OBoy::UString str2("press ENTER to start");
 		float str2scale = 0.8f;
-		float x1 = (oboy::Environment::screenWidth() - mFont->getStringWidth(str1)) / 2.0f;
-		float x2 = (oboy::Environment::screenWidth() - mFont->getStringWidth(str2)*str2scale) / 2.0f;
+		float x1 = (OBoy::Environment::screenWidth() - mFont->getStringWidth(str1)) / 2.0f;
+		float x2 = (OBoy::Environment::screenWidth() - mFont->getStringWidth(str2)*str2scale) / 2.0f;
 		g->pushTransform();
-			g->translate(x1, oboy::Environment::screenHeight()/2.0f - 50.0f);
+			g->translate(x1, OBoy::Environment::screenHeight()/2.0f - 50.0f);
 			mFont->drawString(g,str1);
 		g->popTransform();
 		g->pushTransform();
-			g->translate(x2, oboy::Environment::screenHeight()/2.0f + 50.0f);
+			g->translate(x2, OBoy::Environment::screenHeight()/2.0f + 50.0f);
 			mFont->drawString(g,str2,str2scale);
 		g->popTransform();*/
 	}
@@ -351,7 +350,7 @@ void Macro::drawMenu(oboy::Graphics *g)
   mGuiSystem->draw();
 }
 
-void Macro::drawGame(oboy::Graphics *g)
+void Macro::drawGame(OBoy::Graphics *g)
 {
   // draw the background:
   drawBackground(g, mCamera);
@@ -385,14 +384,14 @@ void Macro::drawGame(oboy::Graphics *g)
   mGuiSystem->draw();
 }
 
-void Macro::draw(oboy::Graphics *g)
+void Macro::draw(OBoy::Graphics *g)
 {
 	mDrawCount++;
 
   callMemberFunction(this, mDrawFuncs[mGameOver])(g);
 }
 
-void Macro::keyUp(wchar_t unicode, oboy::Keyboard::Key key, oboy::Keyboard::Modifiers mods)
+void Macro::keyUp(wchar_t unicode, OBoy::Keyboard::Key key, OBoy::Keyboard::Modifiers mods)
 {
   // like before we inject the scancode directly
   CEGUI::System::getSingleton().injectKeyUp(key);
@@ -416,10 +415,10 @@ void Macro::keyUp(wchar_t unicode, oboy::Keyboard::Key key, oboy::Keyboard::Modi
   }
   if (unicode=='H' || unicode=='h')
   {
-    oboy::Graphics *g = oboy::Environment::instance()->getGraphics();
+    OBoy::Graphics *g = OBoy::Environment::instance()->getGraphics();
 	  float w = g->getWidth() / 2.0f;
 	  float h = g->getHeight() / 2.0f;
-    mCamera = mMainPlayer->getCore()->getPosition() - oboylib::Vector2(w, h);
+    mCamera = mMainPlayer->getCore()->getPosition() - OBoyLib::Vector2(w, h);
   }
   if (unicode==' ') // when spacebar is hit change main player
   {
@@ -438,7 +437,7 @@ void Macro::keyUp(wchar_t unicode, oboy::Keyboard::Key key, oboy::Keyboard::Modi
   }
 }
 
-void Macro::keyDown(wchar_t unicode, oboy::Keyboard::Key key, oboy::Keyboard::Modifiers mods)
+void Macro::keyDown(wchar_t unicode, OBoy::Keyboard::Key key, OBoy::Keyboard::Modifiers mods)
 {
   // to tell CEGUI that a key was pressed, we inject the scancode
   CEGUI::System::getSingleton().injectKeyDown(key);
@@ -449,7 +448,7 @@ void Macro::keyDown(wchar_t unicode, oboy::Keyboard::Key key, oboy::Keyboard::Mo
   mKeyPressed[key] = true;
 }
 #ifdef OBOY_PLATFORM_LINUX
-oboylib::Vector2 getGLPos(oboylib::Vector2 pos)
+OBoyLib::Vector2 getGLPos(OBoyLib::Vector2 pos)
 {
 	GLint viewport[4];
 	GLdouble modelview[16];
@@ -463,10 +462,10 @@ oboylib::Vector2 getGLPos(oboylib::Vector2 pos)
 	winy = static_cast<GLfloat>(viewport[3] - pos.y());
 	glReadPixels(pos.x(), static_cast<GLint>(winy), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winz);
 	gluUnProject(winx, winy, winz, modelview, projection, viewport, &posx, &posy, &posz);
-  return oboylib::Vector2(static_cast<float>(posx), static_cast<float>(posy));
+  return OBoyLib::Vector2(static_cast<float>(posx), static_cast<float>(posy));
 }
 #endif
-void Macro::mouseMove(oboy::Mouse *mouse)
+void Macro::mouseMove(OBoy::Mouse *mouse)
 {
   if (CEGUI::System::getSingleton().injectMousePosition(mouse->getPosition().x(), mouse->getPosition().y()))
     return;
@@ -474,8 +473,8 @@ void Macro::mouseMove(oboy::Mouse *mouse)
   if (mGameOver)
     return;
 
-  static oboylib::Vector2 previousMousePos;
-  oboylib::Vector2 mousePos = mouse->getPosition() + mCamera;
+  static OBoyLib::Vector2 previousMousePos;
+  OBoyLib::Vector2 mousePos = mouse->getPosition() + mCamera;
   mMousePos = mouse->getPosition();
 
   if (mousePos.x() < 0)
@@ -487,9 +486,9 @@ void Macro::mouseMove(oboy::Mouse *mouse)
   else if (mousePos.y() > mWorldSize.y())
     mousePos.y() = mWorldSize.y();
 
-  if (mButtonPressed[oboy::Mouse::BUTTON_LEFT] || mButtonPressed[oboy::Mouse::BUTTON_RIGHT])
+  if (mButtonPressed[OBoy::Mouse::BUTTON_LEFT] || mButtonPressed[OBoy::Mouse::BUTTON_RIGHT])
   {
-    if (mButtonPressed[oboy::Mouse::BUTTON_LEFT] && mPlanetSelected)
+    if (mButtonPressed[OBoy::Mouse::BUTTON_LEFT] && mPlanetSelected)
     {
       for (int i=0 ; i<(int)mPlanets.size() ; i++)
       {
@@ -502,9 +501,9 @@ void Macro::mouseMove(oboy::Mouse *mouse)
     }
     else if (mWaypointSelected == true)
       mMainPlayer->moveWaypoint(mousePos, mPlanets);
-    else if (mButtonPressed[oboy::Mouse::BUTTON_RIGHT] && mArrowSelected == true)
+    else if (mButtonPressed[OBoy::Mouse::BUTTON_RIGHT] && mArrowSelected == true)
       mMainPlayer->updateProbaArrow(mousePos);
-    else if (mButtonPressed[oboy::Mouse::BUTTON_RIGHT] && mRingSelected == true)
+    else if (mButtonPressed[OBoy::Mouse::BUTTON_RIGHT] && mRingSelected == true)
       mMainPlayer->updateProbaRing(mousePos);
     else
     {
@@ -515,20 +514,20 @@ void Macro::mouseMove(oboy::Mouse *mouse)
   previousMousePos = mouse->getPosition();
 }
 
-void Macro::mouseButtonDown(oboy::Mouse *mouse, oboy::Mouse::Button button, int clickCount)
+void Macro::mouseButtonDown(OBoy::Mouse *mouse, OBoy::Mouse::Button button, int clickCount)
 {
 #ifdef OBOY_PLATFORM_WIN32 /* Direct3D */
-  oboylib::Vector2 mousePos = mouse->getPosition() + mCamera;
+  OBoyLib::Vector2 mousePos = mouse->getPosition() + mCamera;
 #else /* OpenGL */
-  oboylib::Vector2 mousePos = getGLPos(mouse->getPosition()) + mCamera;
+  OBoyLib::Vector2 mousePos = getGLPos(mouse->getPosition()) + mCamera;
 #endif
 
   switch (button)
   {
-		case oboy::Mouse::BUTTON_LEFT:
+		case OBoy::Mouse::BUTTON_LEFT:
       if (CEGUI::System::getSingleton().injectMouseButtonDown(CEGUI::LeftButton))
         return;
-			if (mButtonPressed[oboy::Mouse::BUTTON_LEFT] == false)
+			if (mButtonPressed[OBoy::Mouse::BUTTON_LEFT] == false)
       {
         for (int i=0 ; i<(int)mPlanets.size() ; i++)
         {
@@ -541,25 +540,25 @@ void Macro::mouseButtonDown(oboy::Mouse *mouse, oboy::Mouse::Button button, int 
         }
         if (mDrawWaypoints && !mPlanetSelected)
           mWaypointSelected = mMainPlayer->pickWaypoint(mousePos);
-        mButtonPressed[oboy::Mouse::BUTTON_LEFT] = true;
+        mButtonPressed[OBoy::Mouse::BUTTON_LEFT] = true;
 	    }
 			break;
 
-		case oboy::Mouse::BUTTON_MIDDLE:
+		case OBoy::Mouse::BUTTON_MIDDLE:
       if (CEGUI::System::getSingleton().injectMouseButtonDown(CEGUI::MiddleButton))
         return;
-			if (mButtonPressed[oboy::Mouse::BUTTON_MIDDLE] == false)
+			if (mButtonPressed[OBoy::Mouse::BUTTON_MIDDLE] == false)
       {
-        if (mDrawWaypoints && mButtonPressed[oboy::Mouse::BUTTON_MIDDLE] == false)
+        if (mDrawWaypoints && mButtonPressed[OBoy::Mouse::BUTTON_MIDDLE] == false)
           mMainPlayer->deleteWaypoint(mousePos);
-		    mButtonPressed[oboy::Mouse::BUTTON_MIDDLE] = true;
+		    mButtonPressed[OBoy::Mouse::BUTTON_MIDDLE] = true;
 	    }
 			break;
 
-		case oboy::Mouse::BUTTON_RIGHT:
+		case OBoy::Mouse::BUTTON_RIGHT:
       if (CEGUI::System::getSingleton().injectMouseButtonDown(CEGUI::RightButton))
         return;
-			if (mButtonPressed[oboy::Mouse::BUTTON_RIGHT] == false)
+			if (mButtonPressed[OBoy::Mouse::BUTTON_RIGHT] == false)
       {
         if (mDrawWaypoints)
         {
@@ -571,21 +570,21 @@ void Macro::mouseButtonDown(oboy::Mouse *mouse, oboy::Mouse::Button button, int 
               mWaypointSelected = mMainPlayer->createWaypoint(mousePos, mPlanets, mShips);
           }
         }
-		    mButtonPressed[oboy::Mouse::BUTTON_RIGHT] = true;
+		    mButtonPressed[OBoy::Mouse::BUTTON_RIGHT] = true;
 	    }
 			break;
   }
 }
 
-void Macro::mouseButtonUp(oboy::Mouse *mouse, oboy::Mouse::Button button)
+void Macro::mouseButtonUp(OBoy::Mouse *mouse, OBoy::Mouse::Button button)
 {
-  oboylib::Vector2 mousePos = mouse->getPosition() + mCamera;
+  OBoyLib::Vector2 mousePos = mouse->getPosition() + mCamera;
   switch (button)
   {
-		case oboy::Mouse::BUTTON_LEFT:
+		case OBoy::Mouse::BUTTON_LEFT:
       if (CEGUI::System::getSingleton().injectMouseButtonUp(CEGUI::LeftButton))
         return;
-			if (mButtonPressed[oboy::Mouse::BUTTON_LEFT] == true)
+			if (mButtonPressed[OBoy::Mouse::BUTTON_LEFT] == true)
       {
         if (mWaypointSelected)
         {
@@ -599,18 +598,18 @@ void Macro::mouseButtonUp(oboy::Mouse *mouse, oboy::Mouse::Button button)
               mPlanets[i]->setSelected(false);
           mPlanetSelected = false;
         }
-		    mButtonPressed[oboy::Mouse::BUTTON_LEFT] = false;
+		    mButtonPressed[OBoy::Mouse::BUTTON_LEFT] = false;
 	    }
 			break;
-		case oboy::Mouse::BUTTON_MIDDLE:
+		case OBoy::Mouse::BUTTON_MIDDLE:
       if (CEGUI::System::getSingleton().injectMouseButtonUp(CEGUI::MiddleButton))
         return;
-        mButtonPressed[oboy::Mouse::BUTTON_MIDDLE] = false;
+        mButtonPressed[OBoy::Mouse::BUTTON_MIDDLE] = false;
 			break;
-		case oboy::Mouse::BUTTON_RIGHT:
+		case OBoy::Mouse::BUTTON_RIGHT:
       if (CEGUI::System::getSingleton().injectMouseButtonUp(CEGUI::RightButton))
         return;
-      if (mButtonPressed[oboy::Mouse::BUTTON_RIGHT] == true)
+      if (mButtonPressed[OBoy::Mouse::BUTTON_RIGHT] == true)
       {
         if (mWaypointSelected)
           mMainPlayer->releaseWaypoint(mousePos, mPlanets, mShips);
@@ -621,35 +620,35 @@ void Macro::mouseButtonUp(oboy::Mouse *mouse, oboy::Mouse::Button button)
         mWaypointSelected = false;
         mArrowSelected = false;
         mRingSelected = false;
-        mButtonPressed[oboy::Mouse::BUTTON_RIGHT] = false;
+        mButtonPressed[OBoy::Mouse::BUTTON_RIGHT] = false;
 		  }
 			break;
 	}
 }
 
-void Macro::mouseWheel(oboy::Mouse *mouse, int wheelDelta)
+void Macro::mouseWheel(OBoy::Mouse *mouse, int wheelDelta)
 {
   //mZoomFactor += wheelDelta;
 }
 
-void Macro::mouseEnter(oboy::Mouse *mouse)
+void Macro::mouseEnter(OBoy::Mouse *mouse)
 {
 }
 
-void Macro::mouseLeave(oboy::Mouse *mouse)
+void Macro::mouseLeave(OBoy::Mouse *mouse)
 {
 }
 
 void Macro::loadRandomMap(const int numPlayers, const int numPlanets, const int numAsteroids)
 {
-  oboylib::Vector2 pos;
+  OBoyLib::Vector2 pos;
   bool found = false;
   int radius;
   int speed;
   float minDistanceBetweenTwoCores = static_cast<float>(sqrt(static_cast<float>(mWorldSize.x()*mWorldSize.x() + mWorldSize.y()*mWorldSize.y()))/(numPlayers+1));
   int minDistanceBetweenTwoPlanets = 140;
   int minDistanceFromBorder = 60;
-  oboylib::Color::ColorConstant playerColors[] = {oboylib::Color::Red, oboylib::Color::Blue, oboylib::Color::Yellow, oboylib::Color::Magenta, oboylib::Color::Cyan, oboylib::Color::Green};
+  OBoyLib::Color::ColorConstant playerColors[] = {OBoyLib::Color::Red, OBoyLib::Color::Blue, OBoyLib::Color::Yellow, OBoyLib::Color::Magenta, OBoyLib::Color::Cyan, OBoyLib::Color::Green};
   for (int i = 0; i < numPlayers; i++)
   {
     Player* player = new Player();
@@ -752,7 +751,7 @@ void Macro::endGame()
 {
   mGameOver = true;
 
-  oboy::ResourceManager *rm = oboy::Environment::instance()->getResourceManager();
+  OBoy::ResourceManager *rm = OBoy::Environment::instance()->getResourceManager();
   rm->unloadResourceGroup("textures");
 
   while (mShips.size()>0)
@@ -790,7 +789,7 @@ void Macro::newGame()
   mWorldSize.x() = MAP_WIDTH;
 	mWorldSize.y() = MAP_HEIGHT;
 
-  oboy::ResourceManager *rm = oboy::Environment::instance()->getResourceManager();
+  OBoy::ResourceManager *rm = OBoy::Environment::instance()->getResourceManager();
 
   loadRandomMap(NUM_PLAYERS, NUM_PLANETS, NUM_ASTEROIDS);
 #if 0
@@ -798,7 +797,7 @@ void Macro::newGame()
   {
     std::ostringstream path;
     path << "res/planet_" << i;
-    oboy::CoherentNoise::createSphereHeightMap(path.str(), "planet", 128, 64);
+    OBoy::CoherentNoise::createSphereHeightMap(path.str(), "planet", 128, 64);
     std::ostringstream id;
     id << "IMAGE_PLANET_" << i;
     rm->addResource(id.str(), "image", path.str(), "textures");
@@ -814,13 +813,13 @@ void Macro::newGame()
   }
 #endif
 	mMainPlayer = mPlayers.front();
-  oboy::Graphics *g = oboy::Environment::instance()->getGraphics();
+  OBoy::Graphics *g = OBoy::Environment::instance()->getGraphics();
 	float w = g->getWidth()/2.0f;
 	float h = g->getHeight()/2.0f;
-  mCamera = mMainPlayer->getCore()->getPosition() - oboylib::Vector2(w, h);
+  mCamera = mMainPlayer->getCore()->getPosition() - OBoyLib::Vector2(w, h);
   mGameSpeed = 1.0f;
-  mMove = oboylib::Vector2();
-  mMousePos = oboylib::Vector2(w, h);
+  mMove = OBoyLib::Vector2();
+  mMousePos = OBoyLib::Vector2(w, h);
   mDrawShips = true;
   mDrawWaypoints = true;
   mDrawMinHp = true;

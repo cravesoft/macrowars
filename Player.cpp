@@ -20,10 +20,10 @@ Player::~Player(void)
 	}
 }
 
-void Player::drawWaypoints(oboy::Graphics *g, const oboylib::Vector2 camera)
+void Player::drawWaypoints(OBoy::Graphics *g, const OBoyLib::Vector2 camera)
 {
   // draw all waypoints:
-  g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+  g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
   {
     mWaypoints[i]->draw(g, camera);
@@ -31,10 +31,10 @@ void Player::drawWaypoints(oboy::Graphics *g, const oboylib::Vector2 camera)
     if (mWaypoints[i]->isSelectedAsParent())
       mWaypoints[i]->drawProbas(g, camera);
   }
-  g->setDrawMode(oboy::Graphics::DRAWMODE_NORMAL);
+  g->setDrawMode(OBoy::Graphics::DRAWMODE_NORMAL);
 }
 
-bool Player::createWaypoint(oboylib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships)
+bool Player::createWaypoint(OBoyLib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships)
 {
   // check if there is already a waypoint at the mouse position:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -112,7 +112,7 @@ bool Player::createWaypoint(oboylib::Vector2 position, std::vector<Planet*> &pla
   return true;
 }
 
-bool Player::pickWaypoint(oboylib::Vector2 position)
+bool Player::pickWaypoint(OBoyLib::Vector2 position)
 {
   // check if there is a waypoint or an arrow at the mouse position:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -166,7 +166,7 @@ bool Player::pickWaypoint(oboylib::Vector2 position)
   return false;
 }
 
-bool Player::moveWaypoint(oboylib::Vector2 position, std::vector<Planet*> &planets)
+bool Player::moveWaypoint(OBoyLib::Vector2 position, std::vector<Planet*> &planets)
 {
   // find the selected waypoint:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -205,7 +205,7 @@ bool Player::moveWaypoint(oboylib::Vector2 position, std::vector<Planet*> &plane
   return false;
 }
 
-void Player::deleteWaypoint(oboylib::Vector2 position)
+void Player::deleteWaypoint(OBoyLib::Vector2 position)
 {
   // find a waypoint or an arrow at the mouse position:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -236,7 +236,7 @@ void Player::deleteWaypoint(oboylib::Vector2 position)
   cleanWaypoints();
 }
 
-void Player::releaseWaypoint(oboylib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships)
+void Player::releaseWaypoint(OBoyLib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships)
 {
   // find the selected waypoint:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -339,7 +339,7 @@ void Player::cleanWaypoints()
 	}
 }
 
-bool Player::isArrowTouched(oboylib::Vector2 position)
+bool Player::isArrowTouched(OBoyLib::Vector2 position)
 {
   // find a waypoint which arrow is touched by the mouse:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -359,7 +359,7 @@ bool Player::isArrowTouched(oboylib::Vector2 position)
   return false;
 }
 
-bool Player::isRingTouched(oboylib::Vector2 position)
+bool Player::isRingTouched(OBoyLib::Vector2 position)
 {
   // find a waypoint which ring is touched by the mouse:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -377,7 +377,7 @@ bool Player::isRingTouched(oboylib::Vector2 position)
   return false;
 }
 
-bool Player::updateProbaRing(oboylib::Vector2 position)
+bool Player::updateProbaRing(OBoyLib::Vector2 position)
 {
   // find the selected ring:
   for (int i=0 ; i<(int)mWaypoints.size() ; i++)
@@ -394,7 +394,7 @@ bool Player::updateProbaRing(oboylib::Vector2 position)
   return false;
 }
 
-bool Player::updateProbaArrow(oboylib::Vector2 position)
+bool Player::updateProbaArrow(OBoyLib::Vector2 position)
 {
   int i, j;
   // find the selected link (between a parent and one of its sibling)

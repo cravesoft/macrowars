@@ -26,34 +26,34 @@ public:
   ~Player(void);
 
   // draw all waypoints and draw the probas of the selected parent
-  void drawWaypoints(oboy::Graphics *g, const oboylib::Vector2 camera);
+  void drawWaypoints(OBoy::Graphics *g, const OBoyLib::Vector2 camera);
 
   // create a new waypoint and make it the selected waypoint
-  bool createWaypoint(oboylib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships);
+  bool createWaypoint(OBoyLib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships);
 
   // find a waypoint in the area defined by the mouse position and choose it as the selected waypoint
-  bool pickWaypoint(const oboylib::Vector2 position);
+  bool pickWaypoint(const OBoyLib::Vector2 position);
 
   // update the proba of a ring with the mouse
-  bool updateProbaRing(const oboylib::Vector2 position);
+  bool updateProbaRing(const OBoyLib::Vector2 position);
 
   // update the proba of an arrow with the mouse
-  bool updateProbaArrow(const oboylib::Vector2 position);
+  bool updateProbaArrow(const OBoyLib::Vector2 position);
 
   // check if an arrow is touched
-  bool isArrowTouched(const oboylib::Vector2 position);
+  bool isArrowTouched(const OBoyLib::Vector2 position);
 
   // check if a ring is touched
-  bool isRingTouched(const oboylib::Vector2 position);
+  bool isRingTouched(const OBoyLib::Vector2 position);
 
   // move a waypoint with the mouse
-  bool moveWaypoint(const oboylib::Vector2 position, std::vector<Planet*> &planets);
+  bool moveWaypoint(const OBoyLib::Vector2 position, std::vector<Planet*> &planets);
   
   // find a waypoint in the zone defined by the mouse position and delete it
-  void deleteWaypoint(const oboylib::Vector2 position);
+  void deleteWaypoint(const OBoyLib::Vector2 position);
 
   // release the selected waypoint
-  void releaseWaypoint(const oboylib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships);
+  void releaseWaypoint(const OBoyLib::Vector2 position, std::vector<Planet*> &planets, std::vector<Ship*>& ships);
 
   // release the selected arrow
   void releaseArrow();
@@ -72,8 +72,8 @@ public:
   inline void setCore(Core *core) { mPlayerCore = core; };
 
   // get and set the color of the player
-  inline oboylib::Color getColor() const { return mColor; };
-  inline void setColor(const oboylib::Color color) { mColor = color; };
+  inline OBoyLib::Color getColor() const { return mColor; };
+  inline void setColor(const OBoyLib::Color color) { mColor = color; };
 
   // get and set the id of the player (HUMAN or COMPUTER)
   inline int getPlayerId() const { return mPlayerId; };
@@ -90,10 +90,10 @@ private:
 
 private:
   
-  oboylib::Color mColor;
+  OBoyLib::Color mColor;
   int mPlayerId;
   int mPlayerStrategy;
   Core* mPlayerCore;
-  oboylib::Vector2 mOriginalMousePos;
+  OBoyLib::Vector2 mOriginalMousePos;
   std::vector<Waypoint*> mWaypoints;
 };

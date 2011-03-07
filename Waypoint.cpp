@@ -16,16 +16,16 @@
 
 Waypoint::Waypoint(void)
 {
-  mPos = oboylib::Vector2();
+  mPos = OBoyLib::Vector2();
   mPlanet = NULL;
-  mColor = oboylib::Color::White;
+  mColor = OBoyLib::Color::White;
   mDrawRing = true;
   mSelected = false;
   mSelectedAsParent = false;
-  oboy::ResourceManager *rm = oboy::Environment::instance()->getResourceManager();
+  OBoy::ResourceManager *rm = OBoy::Environment::instance()->getResourceManager();
   mFont = rm->getFont("FONT_MAIN");
   mProbaRing = 50;
-  mRingStrip = oboy::Environment::instance()->createTriStrip(722);
+  mRingStrip = OBoy::Environment::instance()->createTriStrip(722);
   setRadius(WAYPOINT_DEFAULT_RADIUS);
 }
 
@@ -54,9 +54,9 @@ void Waypoint::setRadius(const int radius)
 #if 0
 void Waypoint::createArrow(Waypoint* sibling)
 {
-  mArrowTailTriStrips[sibling] = oboy::Environment::instance()->createTriStrip(4);
-  mArrowHeadTriStrips[sibling] = oboy::Environment::instance()->createTriStrip(4);
-  mArrowLineStrips[sibling] = oboy::Environment::instance()->createLineStrip(7);
+  mArrowTailTriStrips[sibling] = OBoy::Environment::instance()->createTriStrip(4);
+  mArrowHeadTriStrips[sibling] = OBoy::Environment::instance()->createTriStrip(4);
+  mArrowLineStrips[sibling] = OBoy::Environment::instance()->createLineStrip(7);
 }
 
 void Waypoint::deleteArrow(Waypoint* sibling)
@@ -66,7 +66,7 @@ void Waypoint::deleteArrow(Waypoint* sibling)
   delete(mArrowLineStrips[sibling]);
 }
 
-void Waypoint::updateArrow(Waypoint* sibling, const float length, const oboy::Color color)
+void Waypoint::updateArrow(Waypoint* sibling, const float length, const OBoy::Color color)
 {
   mArrowTailTriStrips[sibling]->setColor(color);
   mArrowTailTriStrips[sibling]->setVertPos(0, length, ARROW_HALF_WIDTH);
@@ -94,9 +94,9 @@ void Waypoint::updateArrow(Waypoint* sibling, const float length, const oboy::Co
 }
 #endif
 #if 1
-void Waypoint::drawArrow(oboy::Graphics *g, const float length, const oboylib::Color color)
+void Waypoint::drawArrow(OBoy::Graphics *g, const float length, const OBoyLib::Color color)
 {
-  oboy::TriStrip* arrowTailTriStrip = oboy::Environment::instance()->createTriStrip(4);
+  OBoy::TriStrip* arrowTailTriStrip = OBoy::Environment::instance()->createTriStrip(4);
   arrowTailTriStrip->setColor(color);
   arrowTailTriStrip->setVertPos(0, length, ARROW_HALF_WIDTH);
   arrowTailTriStrip->setVertPos(1, 0, 0);
@@ -106,7 +106,7 @@ void Waypoint::drawArrow(oboy::Graphics *g, const float length, const oboylib::C
   g->drawTriStrip(arrowTailTriStrip);
   delete arrowTailTriStrip;
 
-  oboy::TriStrip* arrowHeadTriStrip = oboy::Environment::instance()->createTriStrip(4);
+  OBoy::TriStrip* arrowHeadTriStrip = OBoy::Environment::instance()->createTriStrip(4);
   arrowHeadTriStrip->setColor(color);
   arrowHeadTriStrip->setVertPos(0, length, ARROW_HALF_HEAD_WIDTH);
   arrowHeadTriStrip->setVertPos(1, length, 0);
@@ -116,7 +116,7 @@ void Waypoint::drawArrow(oboy::Graphics *g, const float length, const oboylib::C
   g->drawTriStrip(arrowHeadTriStrip);
   delete arrowHeadTriStrip;
 
-  oboy::LineStrip* arrowLineStrip = oboy::Environment::instance()->createLineStrip(7);
+  OBoy::LineStrip* arrowLineStrip = OBoy::Environment::instance()->createLineStrip(7);
   arrowLineStrip->setColor(mColor);
   arrowLineStrip->setVertPos(0, length, ARROW_HALF_WIDTH);
   arrowLineStrip->setVertPos(1, length, ARROW_HALF_HEAD_WIDTH);
@@ -135,11 +135,11 @@ void Waypoint::setDefaultRadius()
   mRadius = WAYPOINT_DEFAULT_RADIUS;
 }
 
-void Waypoint::draw(oboy::Graphics *g, const oboylib::Vector2 camera)
+void Waypoint::draw(OBoy::Graphics *g, const OBoyLib::Vector2 camera)
 {
-  int w = oboy::Environment::screenWidth();
-	int h = oboy::Environment::screenHeight();
-	oboylib::Vector2 pos = mPos - camera;
+  int w = OBoy::Environment::screenWidth();
+	int h = OBoy::Environment::screenHeight();
+	OBoyLib::Vector2 pos = mPos - camera;
   const float outerRadius = 1.2f*mRadius;
 
   if (mDrawRing)
@@ -159,7 +159,7 @@ void Waypoint::draw(oboy::Graphics *g, const oboylib::Vector2 camera)
     if (mSiblings[i]->getPosition() != mPos)
     {
       // compute the angle between the sibling and its parent:
-      oboylib::Vector2 direction = (mSiblings[i]->getPosition() - mPos).normalize();
+      OBoyLib::Vector2 direction = (mSiblings[i]->getPosition() - mPos).normalize();
       float angle = atan2(direction.y(), direction.x());
       // compute the length of the arrow
       float length = (mSiblings[i]->getPosition() - mPos).magnitude() - ARROW_HEAD_HEIGHT;
@@ -195,16 +195,16 @@ void Waypoint::draw(oboy::Graphics *g, const oboylib::Vector2 camera)
   }
 }
 
-void Waypoint::drawProbas(oboy::Graphics *g, const oboylib::Vector2 camera)
+void Waypoint::drawProbas(OBoy::Graphics *g, const OBoyLib::Vector2 camera)
 {
-  int w = oboy::Environment::screenWidth();
-	int h = oboy::Environment::screenHeight();
-	oboylib::Vector2 pos = mPos - camera;
+  int w = OBoy::Environment::screenWidth();
+	int h = OBoy::Environment::screenHeight();
+	OBoyLib::Vector2 pos = mPos - camera;
   
-  oboy::UString stats;
+  OBoy::UString stats;
   float str2scale = 0.8f;
-  g->setColor(oboylib::Color::White);
-  stats = oboy::UString::format("%d%%", mProbaRing);
+  g->setColor(OBoyLib::Color::White);
+  stats = OBoy::UString::format("%d%%", mProbaRing);
   float x = pos.x() - (mFont->getStringWidth(stats)*str2scale) / 2.0f;
 	g->pushTransform();
     g->translate(x, pos.y());
@@ -214,9 +214,9 @@ void Waypoint::drawProbas(oboy::Graphics *g, const oboylib::Vector2 camera)
   const float outerRadius = 1.2f*mRadius;
   for (int i=0 ; i<(int)mSiblings.size() ; i++)
   {
-    stats = oboy::UString::format("%d%%", mProbas[mSiblings[i]]);
-    oboylib::Vector2 position;
-    oboylib::Vector2 direction = (mSiblings[i]->getPosition() - mPos).normalize();
+    stats = OBoy::UString::format("%d%%", mProbas[mSiblings[i]]);
+    OBoyLib::Vector2 position;
+    OBoyLib::Vector2 direction = (mSiblings[i]->getPosition() - mPos).normalize();
     float angle = atan2(direction.y(), direction.x());
     position.x() = (cos(angle)*((mSiblings[i]->getPosition() - mPos).magnitude() - outerRadius - 1.2f*mSiblings[i]->getRadius()))/2 + pos.x() + cos(angle)*outerRadius;
     position.y() = (sin(angle)*((mSiblings[i]->getPosition() - mPos).magnitude() - outerRadius - 1.2f*mSiblings[i]->getRadius()))/2 + pos.y() + sin(angle)*outerRadius;
@@ -227,7 +227,7 @@ void Waypoint::drawProbas(oboy::Graphics *g, const oboylib::Vector2 camera)
   }
 }
 
-bool Waypoint::isTouched(const oboylib::Vector2 pos)
+bool Waypoint::isTouched(const OBoyLib::Vector2 pos)
 {
   if ((mPos - pos).magnitude() < 1.2f*mRadius)
     return true;
@@ -235,7 +235,7 @@ bool Waypoint::isTouched(const oboylib::Vector2 pos)
     return false;
 }
 
-bool Waypoint::isRingTouched(const oboylib::Vector2 pos)
+bool Waypoint::isRingTouched(const OBoyLib::Vector2 pos)
 {
   float distance = (mPos - pos).magnitude();
   if (distance > mRadius && distance < 1.2f*mRadius)
@@ -244,36 +244,36 @@ bool Waypoint::isRingTouched(const oboylib::Vector2 pos)
     return false;
 }
 
-bool Waypoint::isArrowTouched(const oboylib::Vector2 pos, Waypoint* &parent)
+bool Waypoint::isArrowTouched(const OBoyLib::Vector2 pos, Waypoint* &parent)
 {
   for (int i=0 ; i<(int)mParents.size() ; i++)
   {
-    oboylib::Vector2 direction = (mParents[i]->getPosition() - mPos).normalize();
+    OBoyLib::Vector2 direction = (mParents[i]->getPosition() - mPos).normalize();
     float angle = rad2deg(atan2(direction.y(), direction.x()));
     const float outerRadius = 1.2f*mRadius;
 
-    oboylib::Vector2 ul = oboylib::Vector2();
+    OBoyLib::Vector2 ul = OBoyLib::Vector2();
     ul.x() = cos(deg2rad(angle))*outerRadius- sin(deg2rad(angle))*(-ARROW_HALF_HEAD_WIDTH) + mPos.x();
     ul.y() = sin(deg2rad(angle))*outerRadius + cos(deg2rad(angle))*(-ARROW_HALF_HEAD_WIDTH) + mPos.y();
 
-    oboylib::Vector2 ur = oboylib::Vector2();
+    OBoyLib::Vector2 ur = OBoyLib::Vector2();
     ur.x() = cos(deg2rad(angle))*outerRadius - sin(deg2rad(angle))*ARROW_HALF_HEAD_WIDTH + mPos.x();
     ur.y() = sin(deg2rad(angle))*outerRadius + cos(deg2rad(angle))*ARROW_HALF_HEAD_WIDTH + mPos.y();
 
-    oboylib::Vector2 lr = oboylib::Vector2();
+    OBoyLib::Vector2 lr = OBoyLib::Vector2();
     lr.x() = cos(deg2rad(angle))*((mParents[i]->getPosition() - mPos).magnitude()-1.2f*mParents[i]->getRadius()) 
            - sin(deg2rad(angle))*ARROW_HALF_HEAD_WIDTH + mPos.x();
     lr.y() = sin(deg2rad(angle))*((mParents[i]->getPosition() - mPos).magnitude()-1.2f*mParents[i]->getRadius()) 
            + cos(deg2rad(angle))*ARROW_HALF_HEAD_WIDTH + mPos.y();
 
-    oboylib::Vector2 ll = oboylib::Vector2();
+    OBoyLib::Vector2 ll = OBoyLib::Vector2();
     ll.x() = cos(deg2rad(angle))*((mParents[i]->getPosition() - mPos).magnitude()-1.2f*mParents[i]->getRadius())
            - sin(deg2rad(angle))*(-ARROW_HALF_HEAD_WIDTH) + mPos.x();
     ll.y() = sin(deg2rad(angle))*((mParents[i]->getPosition() - mPos).magnitude()-1.2f*mParents[i]->getRadius())
            + cos(deg2rad(angle))*(-ARROW_HALF_HEAD_WIDTH) + mPos.y();
 
-    oboylib::Vector2 axis1 = ur-ul;
-    oboylib::Vector2 axis2 = ur-lr;
+    OBoyLib::Vector2 axis1 = ur-ul;
+    OBoyLib::Vector2 axis2 = ur-lr;
 
     float ur1 = (axis1*(ur.dot(axis1)/(axis1.magnitude()*axis1.magnitude()))).dot(axis1);
     float ul1 = (axis1*(ul.dot(axis1)/(axis1.magnitude()*axis1.magnitude()))).dot(axis1);

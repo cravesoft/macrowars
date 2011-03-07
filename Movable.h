@@ -17,6 +17,6 @@ protected:
 
   float mSpeed;
   float mAngle;
-  oboylib::Vector2 mAccel;
-  oboylib::Vector2 mVelocity;
+  OBoyLib::Vector2 mAccel;
+  OBoyLib::Vector2 mVelocity;
 };

@@ -41,9 +41,9 @@ void Satellite::move(float speed)
 
 void Satellite::orbit(float speed)
 {
-  oboylib::Vector2 dir = mBarycenter->getPosition() - mPos;
-  oboylib::Vector2 perpendicularAccel;
-  oboylib::Vector2 parallelAccel;
+  OBoyLib::Vector2 dir = mBarycenter->getPosition() - mPos;
+  OBoyLib::Vector2 perpendicularAccel;
+  OBoyLib::Vector2 parallelAccel;
 
   // set the perpendicular acceleration
   perpendicularAccel = dir.perp().normalize();

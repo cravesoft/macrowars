@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
   srand((int)time(NULL));
 
 	// initialize the platform:
-	oboy::Environment::instance()->init(
+	OBoy::Environment::instance()->init(
 		Macro::instance(),
 		1024, // width
 		768, // height
@@ -19,13 +19,13 @@ int main(int argc, char* argv[])
     "CEGUI"); // CEGUI interface
 
 	// start the main loop
-	oboy::Environment::instance()->startMainLoop();
+	OBoy::Environment::instance()->startMainLoop();
 
 	// destroy the game:
 	Macro::destroy();
 
 	// destroy the environment:
-	oboy::Environment::instance()->destroy();
+	OBoy::Environment::instance()->destroy();
 
 	return 0;
 }

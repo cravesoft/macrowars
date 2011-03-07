@@ -5,8 +5,8 @@
 #include <vector>
 
 #include "OBoy/Environment.h"
-#include "oboylib/OBoyUtil.h"
-#include "oboylib/Vector2.h"
+#include "OBoyLib/OBoyUtil.h"
+#include "OBoyLib/Vector2.h"
 #include "OBoy/LineStrip.h"
 
 #include "Body.h"
@@ -17,13 +17,13 @@ class Player;
 
 typedef struct {
   bool	active; // active (yes/no)
-  oboylib::Color 	life; // particle life
+  OBoyLib::Color 	life; // particle life
   char fade; // fade speed
-  oboylib::Color	  color; // color
-  oboylib::Vector2 pos; // position
-  oboylib::Vector2	dir; // direction
+  OBoyLib::Color	  color; // color
+  OBoyLib::Vector2 pos; // position
+  OBoyLib::Vector2	dir; // direction
 #if 0
-  oboy::LineStrip *shape;
+  OBoy::LineStrip *shape;
 #endif
 } Particle; // particles Structure
 
@@ -32,11 +32,11 @@ class Ship : public Traveller, public Satellite
 public:
 
   Ship(OriginAndDestination *origin, OriginAndDestination *destination,
-       const Player* player, oboylib::Vector2 position);
+       const Player* player, OBoyLib::Vector2 position);
   virtual ~Ship(void);
 
   // draw the ship
-  virtual void draw(oboy::Graphics *g, const oboylib::Vector2 camera);
+  virtual void draw(OBoy::Graphics *g, const OBoyLib::Vector2 camera);
 
   // update the ship
   void update(const float dt);
@@ -58,7 +58,7 @@ public:
 
 private:
 
-  void _draw(oboy::Graphics *g, oboylib::Vector2 &pos);
+  void _draw(OBoy::Graphics *g, OBoyLib::Vector2 &pos);
 
 public:
 
@@ -76,5 +76,5 @@ private:
   int mNumParticles;
   Particle* mParticles;
   const Player* mShipOwner;
-  oboy::LineStrip *mTriangle;
+  OBoy::LineStrip *mTriangle;
 };

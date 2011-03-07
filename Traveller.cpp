@@ -34,7 +34,7 @@ void Traveller::move(float speed)
 
 void Traveller::travelToDestination(float speed)  
 {
-  oboylib::Vector2 dir = mDestination->getPosition() - mPos;
+  OBoyLib::Vector2 dir = mDestination->getPosition() - mPos;
   mAccel = dir.normalize();
   mVelocity = mVelocity*(1.0f-speed) + mAccel*speed;
   mAngle = rad2deg(atan2(mVelocity.y(), mVelocity.x()));

@@ -6,7 +6,7 @@
 #include <map>
 
 #include "OBoy/Font.h"
-#include "oboylib/Vector2.h"
+#include "OBoyLib/Vector2.h"
 #include "OBoy/Sphere.h"
 
 #include "OriginAndDestination.h"
@@ -24,10 +24,10 @@ public:
   virtual ~Planet(void);
 
   void init();
-  virtual void draw(oboy::Graphics *g, const oboylib::Vector2 camera);
-  void draw(oboy::Graphics *g, const oboylib::Vector2 &camera, const bool drawMinHp, const Player* player);
+  virtual void draw(OBoy::Graphics *g, const OBoyLib::Vector2 camera);
+  void draw(OBoy::Graphics *g, const OBoyLib::Vector2 &camera, const bool drawMinHp, const Player* player);
 
-  float getDistance(const oboylib::Vector2);
+  float getDistance(const OBoyLib::Vector2);
   void update(const float dt, std::vector<Ship*>& ships);
   void capture(const Player* player);
   void changeMinHp(const int diffHp, const Player* player, std::vector<Ship*>& ships);
@@ -48,15 +48,15 @@ public:
   inline void setWaypoint(Waypoint* waypoint, const Player* player) { mWaypoints[player] = waypoint; };
 
 private:
-	void _draw(oboy::Graphics *g, const oboylib::Vector2 &pos);
-  void _drawMinHp(oboy::Graphics *g, const oboylib::Vector2 &pos, const Player* player);
-  void _drawText(oboy::Graphics *g, const oboylib::Vector2 &pos, const Player* player);
+	void _draw(OBoy::Graphics *g, const OBoyLib::Vector2 &pos);
+  void _drawMinHp(OBoy::Graphics *g, const OBoyLib::Vector2 &pos, const Player* player);
+  void _drawText(OBoy::Graphics *g, const OBoyLib::Vector2 &pos, const Player* player);
   void updateHp(int delta);
   void release();
 
 protected:
   int mSpeed;
-  oboy::Image *mImage;
+  OBoy::Image *mImage;
 
 private:
   
@@ -67,13 +67,13 @@ private:
   const Player* mPlanetOwner;
   float mTtl;
   bool mCaptured;
-  oboy::Font *mFont;
-  oboy::Sound *mExplosionSound;
+  OBoy::Font *mFont;
+  OBoy::Sound *mExplosionSound;
   std::map<const Player*, Waypoint*> mWaypoints;
   bool mSelected;
 #if 0
-  oboy::Sphere* mSphere;
+  OBoy::Sphere* mSphere;
 #endif
-  oboy::TriStrip* mMinHpStrip;
-  oboy::TriStrip* mCurrentHpStrip;
+  OBoy::TriStrip* mMinHpStrip;
+  OBoy::TriStrip* mCurrentHpStrip;
 };
