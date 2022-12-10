@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="menu_options" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="b_play_game" type="MacrowarsLook/Button" >
+            <Property name="Font" value="DejaVuSans" />
+            <Property name="Text" value="Play game" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="BackgroundEnabled" value="False" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.5,0},{0.5,0},{0.5,0},{0.5,0}}" />
+        </Window>
+        <Window name="b_map_editor" type="MacrowarsLook/Button" >
+            <Property name="Font" value="DejaVuSans" />
+            <Property name="Text" value="Map editor" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.5,0},{0.5,0},{0.5,0},{0.5,0}}" />
+        </Window>
+        <Window name="b_options" type="MacrowarsLook/Button" >
+            <Property name="Font" value="DejaVuSans" />
+            <Property name="Text" value="Options" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.5,0},{0.5,0},{0.5,0},{0.5,0}}" />
+        </Window>
+        <Window name="b_quit" type="MacrowarsLook/Button" >
+            <Property name="Font" value="DejaVuSans" />
+            <Property name="Text" value="Exit game" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.5,0},{0.5,0},{0.5,0},{0.5,0}}" />
+        </Window>
+        <!--<Window name="t_tutorial" type="MacrowarsLook/StaticText" >
+            <Property name="Font" value="DejaVuSans" />
+            <Property name="Text" value="Tutorial" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="BackgroundEnabled" value="False" />
+            <Property name="HorzFormatting" value="HorzCentred" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.463341,0},{0.514207,0},{0.61298,0},{0.628688,0}}" />
+        </Window>
+        <Window name="t_title" type="MacrowarsLook/StaticText" >
+            <Property name="Font" value="ZeroesThree" />
+            <Property name="Text" value="MACROWARS" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="BackgroundEnabled" value="False" />
+            <Property name="HorzFormatting" value="HorzCentred" />
+            <Property name="Position" value="{{0,0},{0,0}}" />
+            <Property name="Size" value="{{1,0},{1,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>-->
+    </Window>
+</GUILayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="singleplayer" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="text_map" type="MacrowarsLook/StaticText" >
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0,10},{0,10},{0.4,0},{0.27,0}}" />
+            <Window name="cb_maps" type="MacrowarsLook/Combobox" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0,10},{0,10},{0.5,0},{0.3,0}}" />
+                <Property name="MaxTextLength" value="1073741823" />
+            </Window>
+            <Window name="img_map" type="MacrowarsLook/StaticImage" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0,10},{0.2,10},{0.5,0},{1,-10}}" />
+            </Window>
+            <Window name="text_map_details" type="MacrowarsLook/StaticText" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.5,10},{0,10},{1,-10},{1,-10}}" />
+            </Window>
+        </Window>
+        <Window name="text_chat" type="MacrowarsLook/StaticText" >
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0,10},{0.27,10},{0.4,0},{0.9,0}}" />
+            <Window name="edit_chat_input" type="MacrowarsLook/Editbox" >
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0,10},{0.9,0},{1,-10},{1,-10}}" />
+            </Window>
+        </Window>
+        <Window name="tx_players" type="MacrowarsLook/StaticText" >
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.4,10},{0,10},{1,-10},{0.64,0}}" />
+            <Window name="cb_player_type" type="MacrowarsLook/Combobox" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0,10},{0,10},{0.3,0},{0.15,0}}" />
+                <Property name="MaxTextLength" value="1073741823" />
+            </Window>
+            <Window name="cmb_player_color" type="MacrowarsLook/Combobox" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.3,10},{0,10},{0.4,0},{0.08,0}}" />
+                <Property name="MaxTextLength" value="1073741823" />
+            </Window>
+            <Window name="edit_player_name" type="MacrowarsLook/Editbox" >
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.4,10},{0,10},{0.7,0},{0.08,0}}" />
+            </Window>
+        </Window>
+        <Window name="tx_options" type="MacrowarsLook/StaticText" >
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.4,10},{0.64,10},{1,-10},{0.9,0}}" />
+            <Window name="text_options" type="MacrowarsLook/Checkbox" >
+                <Property name="Font" value="DejaVuSans-10" />
+                <Property name="Text" value="Fog of war enabled" />
+                <Property name="Selected" value="True" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0,10},{0,10},{0.5,0},{0.4,0}}" />
+            </Window>
+            <Window name="cb_speed" type="MacrowarsLook/Combobox" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0,10},{0.4,10},{0.3,0},{0.8,0}}" />
+                <Property name="MaxTextLength" value="1073741823" />
+            </Window>
+            <Window name="text_speed" type="MacrowarsLook/StaticText" >
+                <Property name="Font" value="DejaVuSans-10" />
+                <Property name="TextColours" value="FF00FF00" />
+                <Property name="Text" value="Speed" />
+                <Property name="FrameEnabled" value="False" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.3,10},{0.4,10},{0.5,0},{0.6,0}}" />
+                <Property name="BackgroundEnabled" value="False" />
+            </Window>
+        </Window>
+        <Window name="b_start" type="MacrowarsLook/Link" >
+            <Property name="Font" value="DejaVuSans-10" />
+            <Property name="Text" value="Start" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.9,0},{0.9,0},{1,0},{1,0}}" />
+        </Window>
+        <Window name="b_back" type="MacrowarsLook/Link" >
+            <Property name="Font" value="DejaVuSans-10" />
+            <Property name="Text" value="Back" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.8,0},{0.9,0},{0.9,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

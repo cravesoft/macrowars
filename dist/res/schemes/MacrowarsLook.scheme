@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<GUIScheme version="5" name="MacrowarsLook">
+    <Imageset name="MacrowarsLook" filename="MacrowarsLook.imageset" />
+    <Font name="Commonwealth-10" filename="Commonwealth-10.font" />
+    <Font name="DejaVuSans-10" filename="DejaVuSans-10.font" />
+    <Font name="DejaVuSans-18" filename="DejaVuSans-18.font" />
+    <Font name="ZeroesThree-40" filename="ZeroesThree-40.font" />
+    <Font name="Tahoma-40" filename="Tahoma-40.font" />
+    <LookNFeel filename="MacrowarsLook.looknfeel" />
+    <!--<WindowrendererSet filename="CEGUIFalagardWRBase" />-->
+    <WindowRendererSet filename="CEGUICoreWindowRendererSet" />
+
+    <FalagardMapping windowType="MacrowarsLook/Label"       targetType="DefaultWindow"     renderer="Core/Default"      lookNFeel="MacrowarsLook/Label" />
+    <FalagardMapping windowType="MacrowarsLook/Button"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="MacrowarsLook/Button" />
+    <FalagardMapping windowType="MacrowarsLook/Link" targetType="CEGUI/PushButton" renderer="Core/Button" lookNFeel="MacrowarsLook/Link" />
+    <FalagardMapping windowType="MacrowarsLook/Checkbox"    targetType="CEGUI/ToggleButton"    renderer="Core/ToggleButton" lookNFeel="MacrowarsLook/Checkbox" />
+    <FalagardMapping windowType="MacrowarsLook/ImageButton" targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="MacrowarsLook/ImageButton" />
+    <FalagardMapping windowType="MacrowarsLook/RadioButton" targetType="CEGUI/RadioButton" renderer="Core/ToggleButton" lookNFeel="MacrowarsLook/RadioButton" />
+    <FalagardMapping windowType="MacrowarsLook/FrameWindow"  targetType="CEGUI/FrameWindow" renderer="Core/FrameWindow"  lookNFeel="MacrowarsLook/FrameWindow" />
+    <FalagardMapping windowType="MacrowarsLook/Titlebar"     targetType="CEGUI/Titlebar"    renderer="Core/Titlebar"     lookNFeel="MacrowarsLook/Titlebar" />
+    <FalagardMapping windowType="MacrowarsLook/Editbox"          targetType="CEGUI/Editbox"          renderer="Core/Editbox"          lookNFeel="MacrowarsLook/Editbox" />
+    <FalagardMapping windowType="MacrowarsLook/MultiLineEditbox" targetType="CEGUI/MultiLineEditbox" renderer="Core/MultiLineEditbox" lookNFeel="MacrowarsLook/MultiLineEditbox" />
+    <FalagardMapping windowType="MacrowarsLook/Menubar"   targetType="CEGUI/Menubar"   renderer="Core/Menubar"   lookNFeel="MacrowarsLook/Menubar" />
+    <FalagardMapping windowType="MacrowarsLook/PopupMenu" targetType="CEGUI/PopupMenu" renderer="Core/PopupMenu" lookNFeel="MacrowarsLook/PopupMenu" />
+    <FalagardMapping windowType="MacrowarsLook/MenuItem"  targetType="CEGUI/MenuItem"  renderer="Core/MenuItem"  lookNFeel="MacrowarsLook/MenuItem" />
+    <FalagardMapping windowType="MacrowarsLook/AlternateProgressBar" targetType="CEGUI/ProgressBar" renderer="Core/ProgressBar" lookNFeel="MacrowarsLook/AltProgressBar" />
+    <FalagardMapping windowType="MacrowarsLook/ProgressBar"          targetType="CEGUI/ProgressBar" renderer="Core/ProgressBar" lookNFeel="MacrowarsLook/ProgressBar" />
+    <FalagardMapping windowType="MacrowarsLook/VUMeter"              targetType="CEGUI/ProgressBar" renderer="Core/ProgressBar" lookNFeel="MacrowarsLook/VUMeter" />
+    <FalagardMapping windowType="MacrowarsLook/VerticalScrollbar"   targetType="CEGUI/Scrollbar" renderer="Core/Scrollbar" lookNFeel="MacrowarsLook/VerticalScrollbar" />
+    <FalagardMapping windowType="MacrowarsLook/HorizontalScrollbar" targetType="CEGUI/Scrollbar" renderer="Core/Scrollbar" lookNFeel="MacrowarsLook/HorizontalScrollbar" />
+    <FalagardMapping windowType="MacrowarsLook/VerticalScrollbarThumb"   targetType="CEGUI/Thumb" renderer="Core/Button" lookNFeel="MacrowarsLook/VerticalScrollbarThumb" />
+    <FalagardMapping windowType="MacrowarsLook/HorizontalScrollbarThumb" targetType="CEGUI/Thumb" renderer="Core/Button" lookNFeel="MacrowarsLook/HorizontalScrollbarThumb" />
+    <FalagardMapping windowType="MacrowarsLook/LargeVerticalScrollbar"      targetType="CEGUI/Scrollbar" renderer="Core/Scrollbar" lookNFeel="MacrowarsLook/LargeVerticalScrollbar" />
+    <FalagardMapping windowType="MacrowarsLook/LargeVerticalScrollbarThumb" targetType="CEGUI/Thumb"     renderer="Core/Button"    lookNFeel="MacrowarsLook/LargeVerticalScrollbarThumb" />
+    <FalagardMapping windowType="MacrowarsLook/TabButton"  targetType="CEGUI/TabButton"  renderer="Core/TabButton"  lookNFeel="MacrowarsLook/TabButton" />
+    <FalagardMapping windowType="MacrowarsLook/TabControl" targetType="CEGUI/TabControl" renderer="Core/TabControl" lookNFeel="MacrowarsLook/TabControl" />
+    <FalagardMapping windowType="MacrowarsLook/TabContentPane"    targetType="DefaultWindow"    renderer="Core/Default"    lookNFeel="MacrowarsLook/TabContentPane" />
+    <FalagardMapping windowType="MacrowarsLook/TabButtonPane"    targetType="DefaultWindow"    renderer="Core/Default"    lookNFeel="MacrowarsLook/TabButtonPane" />
+    <FalagardMapping windowType="MacrowarsLook/ComboDropList" targetType="CEGUI/ComboDropList" renderer="Core/Listbox" lookNFeel="MacrowarsLook/ComboDropList" />
+    <FalagardMapping windowType="MacrowarsLook/ComboEditbox"  targetType="CEGUI/Editbox"     renderer="Core/Editbox" lookNFeel="MacrowarsLook/ComboEditbox" />
+    <FalagardMapping windowType="MacrowarsLook/Combobox" targetType="CEGUI/Combobox"     renderer="Core/Default" lookNFeel="MacrowarsLook/Combobox" />
+    <FalagardMapping windowType="MacrowarsLook/Listbox"           targetType="CEGUI/Listbox"           renderer="Core/Listbox"           lookNFeel="MacrowarsLook/Listbox" />
+    <FalagardMapping windowType="MacrowarsLook/ListHeader"        targetType="CEGUI/ListHeader"        renderer="Core/ListHeader"        lookNFeel="MacrowarsLook/ListHeader" />
+    <FalagardMapping windowType="MacrowarsLook/ListHeaderSegment" targetType="CEGUI/ListHeaderSegment" renderer="Core/ListHeaderSegment" lookNFeel="MacrowarsLook/ListHeaderSegment" />
+    <FalagardMapping windowType="MacrowarsLook/MultiColumnList"   targetType="CEGUI/MultiColumnList"   renderer="Core/MultiColumnList"   lookNFeel="MacrowarsLook/MultiColumnList" />
+    <FalagardMapping windowType="MacrowarsLook/Slider"      targetType="CEGUI/Slider"      renderer="Core/Slider"  lookNFeel="MacrowarsLook/Slider" />
+    <FalagardMapping windowType="MacrowarsLook/SliderThumb" targetType="CEGUI/Thumb" renderer="Core/Button"  lookNFeel="MacrowarsLook/SliderThumb" />
+    <FalagardMapping windowType="MacrowarsLook/ScrollablePane" targetType="CEGUI/ScrollablePane" renderer="Core/ScrollablePane" lookNFeel="MacrowarsLook/ScrollablePane" />
+    <FalagardMapping windowType="MacrowarsLook/Spinner" targetType="CEGUI/Spinner" renderer="Core/Default" lookNFeel="MacrowarsLook/Spinner" />
+    <FalagardMapping windowType="MacrowarsLook/Tooltip" targetType="CEGUI/Tooltip" renderer="Core/Tooltip" lookNFeel="MacrowarsLook/Tooltip" />
+    <FalagardMapping windowType="MacrowarsLook/StaticImage" targetType="DefaultWindow" renderer="Core/StaticImage" lookNFeel="MacrowarsLook/StaticImage" />
+    <FalagardMapping windowType="MacrowarsLook/StaticText"  targetType="DefaultWindow" renderer="Core/StaticText"  lookNFeel="MacrowarsLook/StaticText" />
+    <FalagardMapping windowType="MacrowarsLook/ItemListbox" targetType="CEGUI/ItemListbox" renderer="Core/ItemListbox" lookNFeel="MacrowarsLook/ItemListbox" />
+    <FalagardMapping windowType="MacrowarsLook/ListboxItem" targetType="CEGUI/ItemEntry"   renderer="Core/ItemEntry"   lookNFeel="MacrowarsLook/ListboxItem" />
+    <FalagardMapping windowType="MacrowarsLook/GroupBox" targetType="DefaultWindow"   renderer="Core/Default"   lookNFeel="MacrowarsLook/GroupBox" />
+      <FalagardMapping windowType="MacrowarsLook/Tree" targetType="CEGUI/Tree"   renderer="Core/Tree"   lookNFeel="MacrowarsLook/Tree" />
+</GUIScheme>

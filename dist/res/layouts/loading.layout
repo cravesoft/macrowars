@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="loading" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="bar" type="MacrowarsLook/ProgressBar" >
+            <Property name="Text" value="b" />
+            <Property name="StepSize" value="0.01" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="CurrentProgress" value="0" />
+            <Property name="Area" value="{{0.2,0},{0.45,0},{0.8,0},{0.55,0}}" />
+        </Window>
+        <Window name="text" type="MacrowarsLook/StaticText" >
+            <Property name="Font" value="DejaVuSans-10" />
+            <Property name="Text" value="Loading ..." />
+            <Property name="Tooltip" value="Loading" />
+            <Property name="AlwaysOnTop" value="True" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="HorzFormatting" value="WordWrapCentred" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Position" value="{{0,0},{0.45,0}}" />
+            <Property name="Size" value="{{.25,0},{.1,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="BackgroundEnabled" value="False" />
+        </Window>
+    </Window>
+</GUILayout>

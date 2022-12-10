@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="DefaultWindow" name="Root" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="b_local" type="MacrowarsLook/Button" >
+            <Property name="Text" value="Partie réseau local" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.0173615,0},{0.618123,0},{0.267361,0},{0.729922,0}}" />
+        </Window>
+        <Window name="b_internet" type="MacrowarsLook/Button" >
+            <Property name="Font" value="Commonwealth-10" />
+            <Property name="Text" value="Partie Internet" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.0180557,0},{0.742439,0},{0.268055,0},{0.854238,0}}" />
+        </Window>
+        <Window name="b_return" type="MacrowarsLook/Button" >
+            <Property name="Font" value="Commonwealth-10" />
+            <Property name="Text" value="Retour" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.0180557,0},{0.868058,0},{0.268056,0},{0.979857,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

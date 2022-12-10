@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="Root" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="b_create" type="MacrowarsLook/Button" >
+            <Property name="Text" value="Créer une partie" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.00763879,0},{0.644199,0},{0.259723,0},{0.733833,0}}" />
+        </Window>
+        <Window name="b_join" type="MacrowarsLook/Button" >
+            <Property name="Text" value="Rejoindre une partie" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.00833337,0},{0.761148,0},{0.25625,0},{0.86382,0}}" />
+        </Window>
+        <Window name="b_return" type="MacrowarsLook/Button" >
+            <Property name="Text" value="Retour" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.00694383,0},{0.891134,0},{0.25,0},{0.989897,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

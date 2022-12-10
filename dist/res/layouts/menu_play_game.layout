@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="DefaultWindow" name="menu_play_game" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="t_title" type="MacrowarsLook/StaticText" >
+            <Property name="Font" value="Tahoma-40" />
+            <Property name="TextColours" value="FF00FF00" />
+            <Property name="Text" value="MACROWARS" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="BackgroundEnabled" value="False" />
+            <Property name="HorzFormatting" value="HorzCentred" />
+            <Property name="Position" value="{{0,0},{0.43,0}}" />
+            <Property name="Size" value="{{.5,0},{.15,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window name="b_one_player" type="MacrowarsLook/Link" >
+            <Property name="Font" value="DejaVuSans-18" />
+            <Property name="Text" value="Single player" />
+            <Property name="Position" value="{{0,0},{0.61,0}}" />
+            <Property name="Size" value="{{.25,0},{.08,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window name="b_multiplayer" type="MacrowarsLook/Link" >
+            <Property name="Font" value="DejaVuSans-18" />
+            <Property name="Text" value="Multiplayer" />
+            <Property name="Position" value="{{0,0},{0.69,0}}" />
+            <Property name="Size" value="{{.25,0},{.08,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window name="b_return" type="MacrowarsLook/Link" >
+            <Property name="Font" value="DejaVuSans-18" />
+            <Property name="Text" value="Back" />
+            <Property name="Position" value="{{0,0},{0.77,0}}" />
+            <Property name="Size" value="{{.25,0},{.08,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+    </Window>
+</GUILayout>

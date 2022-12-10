@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="Root" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="msgbox" type="MacrowarsLook/FrameWindow" >
+            <Property name="Text" value="Connection à un serveur distant" />
+            <Property name="TitlebarFont" value="Commonwealth-10" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="TitlebarEnabled" value="True" />
+            <Property name="Area" value="{{0.238194,0},{0.0953069,0},{0.763195,0},{0.838139,0}}" />
+            <Window name="host" type="MacrowarsLook/Editbox" >
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.218254,0},{0.402869,0},{0.785714,0},{0.504149,0}}" />
+            </Window>
+            <Window name="msgbox/1" type="MacrowarsLook/StaticText" >
+                <Property name="Text" value="Nickname" />
+                <Property name="FrameEnabled" value="False" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.063757,0},{0.24358,0},{0.201323,0},{0.313957,0}}" />
+                <Property name="BackgroundEnabled" value="False" />
+            </Window>
+            <Window name="password" type="MacrowarsLook/Editbox" >
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.214022,0},{0.594612,0},{0.957406,0},{0.695893,0}}" />
+            </Window>
+            <Window name="msgbox/" type="MacrowarsLook/StaticText" >
+                <Property name="Text" value="Password" />
+                <Property name="FrameEnabled" value="False" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.0481489,0},{0.609806,0},{0.201588,0},{0.682115,0}}" />
+                <Property name="BackgroundEnabled" value="False" />
+            </Window>
+            <Window name="b_connect" type="MacrowarsLook/Button" >
+                <Property name="Text" value="Connect" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.619047,0},{0.807097,0},{0.866402,0},{0.948937,0}}" />
+            </Window>
+            <Window name="b_return" type="MacrowarsLook/Button" >
+                <Property name="Text" value="Retour" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.180159,0},{0.810331,0},{0.428836,0},{0.944446,0}}" />
+            </Window>
+            <Window name="msgbox/11" type="MacrowarsLook/StaticText" >
+                <Property name="Font" value="Commonwealth-10" />
+                <Property name="Text" value="Serveur" />
+                <Property name="FrameEnabled" value="False" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.0634925,0},{0.41644,0},{0.20106,0},{0.486817,0}}" />
+                <Property name="BackgroundEnabled" value="False" />
+            </Window>
+            <Window name="nickname" type="MacrowarsLook/Editbox" >
+                <Property name="Font" value="Commonwealth-10" />
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.216931,0},{0.227354,0},{0.951057,0},{0.328634,0}}" />
+            </Window>
+            <Window name="port" type="MacrowarsLook/Spinner" >
+                <Property name="StepSize" value="1" />
+                <Property name="Currentvalue" value="0" />
+                <Property name="Maximumvalue" value="32767" />
+                <Property name="Minimumvalue" value="-32768" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.794973,0},{0.403467,0},{0.957671,0},{0.507789,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

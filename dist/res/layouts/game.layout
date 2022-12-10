@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="Root" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="console" type="MacrowarsLook/FrameWindow" >
+            <Property name="Alpha" value="0.5" />
+            <Property name="Visible" value="False" />
+            <Property name="TitlebarFont" value="Commonwealth-10" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="TitlebarEnabled" value="False" />
+            <Property name="Area" value="{{0.021528,0},{-0.001173,0},{0.576389,0},{0.995893,0}}" />
+            <Property name="CloseButtonEnabled" value="False" />
+            <Window name="prompt" type="MacrowarsLook/Editbox" >
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.036921,0},{0.934128,0},{0.96527,0},{0.991909,0}}" />
+            </Window>
+            <Window name="shell" type="MacrowarsLook/MultiLineEditbox" >
+                <Property name="Text" >
+</Property>
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.026033,0},{0.015626,0},{0.97816,0},{0.931203,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="Root" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="Root/" type="MacrowarsLook/FrameWindow" >
+            <Property name="Text" value="Erreur" />
+            <Property name="TitlebarFont" value="Commonwealth-10" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="TitlebarEnabled" value="True" />
+            <Property name="Area" value="{{0.234028,0},{0.127901,0},{0.755556,0},{0.844654,0}}" />
+            <Window name="txt" type="MacrowarsLook/StaticText" >
+                <Property name="HorzFormatting" value="HorzCentred" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{-0.00865439,0},{0.156208,0},{0.781957,0},{0.771829,0}}" />
+                <Property name="HorizontalAlignment" value="Centre" />
+            </Window>
+            <Window name="button" type="MacrowarsLook/Button" >
+                <Property name="Text" value="OK" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.374434,0},{0.829377,0},{0.657723,0},{0.973875,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

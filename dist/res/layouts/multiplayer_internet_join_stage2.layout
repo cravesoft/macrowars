@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="Root" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="Root/" type="MacrowarsLook/FrameWindow" >
+            <Property name="TitlebarFont" value="Commonwealth-10" />
+            <Property name="SizingEnabled" value="False" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="ClippedByParent" value="False" />
+            <Property name="TitlebarEnabled" value="False" />
+            <Property name="Area" value="{{0.0111111,0},{0.0170794,0},{0.973612,0},{0.993285,0}}" />
+            <Property name="DragMovingEnabled" value="False" />
+            <Property name="CloseButtonEnabled" value="False" />
+            <Window name="b_return" type="MacrowarsLook/Button" >
+                <Property name="Text" value="Retour" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.054835,0},{0.892655,0},{0.239178,0},{0.979716,0}}" />
+            </Window>
+            <Window name="player_lst" type="MacrowarsLook/ItemListbox" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.013132,0},{0.031719,0},{0.580593,0},{0.870703,0}}" />
+            </Window>
+            <Window name="img" type="MacrowarsLook/StaticImage" >
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.585712,0},{0.004841,0},{0.986508,0},{0.385726,0}}" />
+            </Window>
+            <Window name="chatinput" type="MacrowarsLook/Editbox" >
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.583982,0},{0.895493,0},{0.984776,0},{0.954508,0}}" />
+            </Window>
+            <Window name="Root//" type="MacrowarsLook/MultiLineEditbox" >
+                <Property name="Text" >
+</Property>
+                <Property name="MaxTextLength" value="1073741823" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="Area" value="{{0.584415,0},{0.39182,0},{0.985209,0},{0.890234,0}}" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

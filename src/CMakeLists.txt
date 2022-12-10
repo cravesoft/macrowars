@@ -1,0 +1,57 @@
+set(macrowars_SRCS
+  Asteroid.cpp
+  Body.cpp
+  Core.cpp
+  GuiSystem.cpp
+  Movable.cpp
+  #OrbitStrategy.cpp
+  Orbitable.cpp
+  OriginAndDestination.cpp
+  Macro.cpp
+  main.cpp
+  Planet.cpp
+  Player.cpp
+  Satellite.cpp
+  Ship.cpp
+  #TravelStrategy.cpp
+  Traveller.cpp
+  Waypoint.cpp
+)
+
+set(macrowars_HDRS
+  Asteroid.hpp
+  Body.hpp
+  Core.hpp
+  GuiSystem.hpp
+  Movable.hpp
+  #MoveStrategy.hpp
+  #OrbitStrategy.hpp
+  Orbitable.hpp
+  OriginAndDestination.hpp
+  Planet.hpp
+  Player.hpp
+  Satellite.hpp
+  Ship.hpp
+  #TravelStrategy.hpp
+  Traveller.hpp
+  Waypoint.hpp
+  Macro.hpp
+)
+
+add_executable(Macrowars
+  ${macrowars_SRCS}
+  ${macrowars_HDRS}
+)
+
+target_link_libraries(Macrowars
+  OBoy
+  OBoyLib
+  tinyxml
+  irrKlang
+  ${SDL_LIBRARY}
+  ${SDLIMAGE_LIBRARY}
+  ${OPENGL_LIBRARIES}
+  ${CEGUI_LIBRARIES}
+  ${CEGUI_OPENGL_LIBRARIES}
+  ${GLEW_LIBRARY}
+)

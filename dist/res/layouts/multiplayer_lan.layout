@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="Root" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="b_creer" type="MacrowarsLook/Button" >
+            <Property name="Text" value="Créer" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.00972229,0},{0.60639,0},{0.259722,0},{0.723403,0}}" />
+        </Window>
+        <Window name="b_rejoindre" type="MacrowarsLook/Button" >
+            <Property name="Font" value="Commonwealth-10" />
+            <Property name="Text" value="Rejoindre" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.00902741,0},{0.743744,0},{0.259028,0},{0.860758,0}}" />
+        </Window>
+        <Window name="b_return" type="MacrowarsLook/Button" >
+            <Property name="Font" value="Commonwealth-10" />
+            <Property name="Text" value="Retour" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.00763851,0},{0.87549,0},{0.257639,0},{0.992504,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

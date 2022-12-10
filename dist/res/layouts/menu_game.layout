@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="menu_game" type="MacrowarsLook/FrameWindow" >
+        <Property name="Text" value="Options" />
+        <Property name="MaxSize" value="{{0.8,0},{0.8,0}}" />
+        <Property name="UnifiedMinSize" value="{{0.2,0},{0.2,0}}" />
+        <Property name="Area" value="{{0.3,0},{0.3,0},{0.7,0},{0.7,0}}" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Window name="b_back" type="MacrowarsLook/Link" >
+            <Property name="Font" value="DejaVuSans-10" />
+            <Property name="Text" value="Return to game" />
+            <Property name="Position" value="{{0,0},{0.47,0}}" />
+            <Property name="Size" value="{{.25,0},{.08,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window name="b_exit" type="MacrowarsLook/Link" >
+            <Property name="Font" value="DejaVuSans-10" />
+            <Property name="Text" value="Quit game" />
+            <Property name="Position" value="{{0,0},{0.55,0}}" />
+            <Property name="Size" value="{{.25,0},{.08,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+    </Window>
+</GUILayout>

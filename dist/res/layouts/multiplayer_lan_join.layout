@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window name="Root" type="DefaultWindow" >
+        <Property name="InheritsAlpha" value="False" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window name="Root/" type="MacrowarsLook/StaticText" >
+            <Property name="Text" value="Nickname" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.0465278,0},{0.135724,0},{0.132639,0},{0.194068,0}}" />
+            <Property name="BackgroundEnabled" value="False" />
+        </Window>
+        <Window name="nickname" type="MacrowarsLook/Editbox" >
+            <Property name="MaxTextLength" value="1073741823" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.120139,0},{0.134029,0},{0.586806,0},{0.197588,0}}" />
+        </Window>
+        <Window name="mlist" type="MacrowarsLook/MultiColumnList" >
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.0125,0},{0.262712,0},{0.997223,0},{0.817797,0}}" />
+        </Window>
+        <Window name="b_return" type="MacrowarsLook/Button" >
+            <Property name="Text" value="Retour" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.019444,0},{0.863625,0},{0.202778,0},{0.98455,0}}" />
+        </Window>
+        <Window name="b_join" type="MacrowarsLook/Button" >
+            <Property name="Text" value="Rejoindre" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.779167,0},{0.871057,0},{0.995139,0},{0.993286,0}}" />
+        </Window>
+        <Window name="Root/1" type="MacrowarsLook/StaticText" >
+            <Property name="Font" value="Commonwealth-10" />
+            <Property name="Text" value="Password" />
+            <Property name="FrameEnabled" value="False" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.0416666,0},{0.200066,0},{0.127778,0},{0.25841,0}}" />
+            <Property name="BackgroundEnabled" value="False" />
+        </Window>
+        <Window name="nickname1" type="MacrowarsLook/Editbox" >
+            <Property name="Font" value="Commonwealth-10" />
+            <Property name="MaxTextLength" value="1073741823" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="Area" value="{{0.120139,0},{0.199218,0},{0.586806,0},{0.262777,0}}" />
+        </Window>
+    </Window>
+</GUILayout>
